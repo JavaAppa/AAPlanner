@@ -56,13 +56,13 @@ select, option {
 
 .arg.vector {
 	background-color: rgb(28, 28, 83);
-	color: #6365b3;
+	color: #8688e2;
 }
 .arg.scalar {
 	background-color: rgb(28, 81, 83);
-	color: #63b3b3;
+	color: #78cfcf;
 }
 .arg.null {
 	background-color: rgb(46, 46, 46);
-	color: #686868;
+	color: #a0a0a0;
 }
