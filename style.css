@@ -49,20 +49,24 @@ select, option {
 	color: #222;
 }
 
-.arg {
+.cluster {
 	border-radius: 5px;
 	padding: 5px;
 }
 
-.arg.vector {
+.cluster.vector {
 	background-color: rgb(28, 28, 83);
 	color: #8688e2;
 }
-.arg.scalar {
+.cluster.scalar {
 	background-color: rgb(28, 81, 83);
 	color: #78cfcf;
 }
-.arg.null {
+.cluster.entity {
+	background-color: rgb(83, 28, 28);
+	color: #cf7878;
+}
+.cluster.null {
 	background-color: rgb(46, 46, 46);
 	color: #a0a0a0;
 }
