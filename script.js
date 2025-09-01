@@ -52,6 +52,7 @@ const incantTypes = {
 
 function updateIncantSelectorUI(incant) {
     let incData = incantTypes[incant];
+    console.log(incData);
     if(incData != null) {
         id("editIncantSelectedTitle").innerText = v.toUpperCase();
 
@@ -75,4 +76,5 @@ function updateIncantSelectorUI(incant) {
 id("newIncantSelector").addEventListener("change", function() {
     let v = this.value;
     updateIncantSelectorUI(v);
+    console.log(v);
 });
