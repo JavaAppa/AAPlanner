@@ -91,7 +91,7 @@ const incantTypes = {
     },
     esijit: {
         arguments: ["entity"],
-        returns: [["entity", "null"]],
+        returns: [["entity", "nil"]],
         description: "Gets the entity an entity is looking at."
     },
     gea: {
