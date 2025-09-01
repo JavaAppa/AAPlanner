@@ -48,7 +48,7 @@ window.addEventListener("load", function() {
         let opt = document.createElement("option");
         opt.value = i;
         opt.innerText = i.toUpperCase();
-        id("newIncantSelector").appendChild(option);
+        id("newIncantSelector").appendChild(opt);
     }
 });
 
