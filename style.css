@@ -52,6 +52,7 @@ select, option {
 .cluster {
 	border-radius: 5px;
 	padding: 5px;
+	margin: 5px;
 }
 .inlineCluster {
 	border-radius: 5px;
