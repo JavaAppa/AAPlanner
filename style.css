@@ -93,6 +93,10 @@ select, option {
 	background-color: rgb(28, 81, 83);
 	color: #78cfcf;
 }
+.cluster.list {
+	background-color: rgb(63, 28, 83);
+	color: #a878cf;
+}
 .cluster.null {
 	background-color: rgb(46, 46, 46);
 	color: #a0a0a0;

@@ -85,6 +85,10 @@ const clusterTypes = {
         "styleTag": "scalar",
         "name": "Scalar"
     },
+    list: {
+        "styleTag": "list",
+        "name": "List"
+    },
     nil: {
         "styleTag": "null",
         "name": "Null"
@@ -107,9 +111,64 @@ const incantTypes = {
         returns: [["entity", "nil"]],
         description: "Gets an entity between two vectors."
     },
+    esifir: {
+        arguments: ["entity"],
+        returns: [["block", "nil"]],
+        description: "Gets the block an entity is looking at."
+    },
+    enifir: {
+        arguments: ["vector", "vector"],
+        returns: [["block", "nil"]],
+        description: "Gets an block between two vectors."
+    },
+    esipal: {
+        arguments: ["entity"],
+        returns: [["vector", "nil"]],
+        description: "Gets the block face an entity is looking at."
+    },
+    esipalgea: {
+        arguments: ["entity"],
+        returns: [["vector", "nil"]],
+        description: "Gets the location of the block adjacent to the block face an entity is looking at."
+    },
+    wix: {
+        arguments: ["scalar", "scalar", "vector"],
+        returns: ["list"],
+        description: "Gets a list of entities in a range."
+    },
+    esizon: {
+        arguments: ["scalar", "scalar", "scalar", "entity"],
+        returns: ["list"],
+        description: "Gets a list of entities in a cone the entity is looking at."
+    },
+    esilib: {
+        arguments: ["entity"],
+        returns: ["vector"],
+        description: "Gets the direction an entity is looking at."
+    },
     gea: {
         arguments: ["entity"],
         returns: ["vector"],
         description: "Gets the location of an entity."
+    },
+    biegea: {
+        arguments: ["entity"],
+        returns: ["vector"],
+        description: "Gets the head location of an entity."
+    },
+    firugea: {
+        arguments: ["vector"],
+        returns: [["block", "nil"]],
+        description: "Gets a block from its location."
+    },
+    irapal: {
+        arguments: ["vector", "entity"],
+        returns: [["block", "nil"]],
+        description: "Localize a vector to an entity."
+    },
+    debug: {
+        arguments: ["nil"],
+        returns: ["nil"],
+        description: "Output akashic into chat."
     }
 };
