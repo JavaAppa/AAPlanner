@@ -43,6 +43,14 @@ id("newIncantSelector").addEventListener("change", function() {
     updateIncantSelectorUI(v);
 });
 
+window.addEventListener("load", function() {
+    for(let i of Object.keys(incantTypes)) {
+        let opt = document.createElement("option");
+        opt.value = i;
+        opt.innerText = i.toUpperCase();
+        id("newIncantSelector").appendChild(option);
+    }
+});
 
 const clusterTypes = {
     entity: {
@@ -93,6 +101,11 @@ const incantTypes = {
         arguments: ["entity"],
         returns: [["entity", "nil"]],
         description: "Gets the entity an entity is looking at."
+    },
+    enijit: {
+        arguments: ["vector", "vector"],
+        returns: [["entity", "nil"]],
+        description: "Gets an entity between two vectors."
     },
     gea: {
         arguments: ["entity"],
