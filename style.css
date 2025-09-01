@@ -54,17 +54,38 @@ select, option {
 	padding: 5px;
 }
 
+
+.cluster.entity {
+	background-color: rgb(83, 28, 28);
+	color: #cf7878;
+}
+.cluster.block {
+	background-color: rgb(83, 53, 28);
+	color: #cfb878;
+}
 .cluster.vector {
 	background-color: rgb(28, 28, 83);
 	color: #8688e2;
 }
+.cluster.item {
+	background-color: rgb(83, 28, 76);
+	color: #d086e2;
+}
+.cluster.rotation {
+	background-color: rgb(62, 83, 28);
+	color: #afe286;
+}
+.cluster.word {
+	background-color: rgb(82, 83, 28);
+	color: #e0e286;
+}
+.cluster.boolean {
+	background-color: rgb(28, 83, 57);
+	color: #86e2b7;
+}
 .cluster.scalar {
 	background-color: rgb(28, 81, 83);
 	color: #78cfcf;
-}
-.cluster.entity {
-	background-color: rgb(83, 28, 28);
-	color: #cf7878;
 }
 .cluster.null {
 	background-color: rgb(46, 46, 46);
