@@ -8,6 +8,7 @@ function createClusterTag(a) {
 }
 
 function setClusterList(data, container) {
+    console.log(data);
     if(data.length == 0) {
         container.innerText = "None found.";
         return;
