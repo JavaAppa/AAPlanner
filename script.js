@@ -303,7 +303,7 @@ const incantTypes = {
     },
     "ABIGIM?": {
         arguments: [["entity", "item"]],
-        returns: [["word" "nil"]],
+        returns: [["word","nil"]],
         description: "Returns the name of thing."
     },
     "TULNIM?": {
