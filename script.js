@@ -116,206 +116,247 @@ const incantTypes = {
     "ete": {
         arguments: [],
         returns: ["entity"],
-        description: "Gets self."
+        description: "Gets self.",
+        tags: ["sensors"]
     },
     "esijit": {
         arguments: ["entity"],
         returns: [["entity", "nil"]],
-        description: "Gets the entity an entity is looking at."
+        description: "Gets the entity an entity is looking at.",
+        tags: ["sensors"]
     },
     "enijit": {
         arguments: ["vector", "vector"],
         returns: [["entity", "nil"]],
-        description: "Gets an entity between two vectors."
+        description: "Gets an entity between two vectors.",
+        tags: ["sensors"]
     },
     "esifir": {
         arguments: ["entity"],
         returns: [["block", "nil"]],
-        description: "Gets the block an entity is looking at."
+        description: "Gets the block an entity is looking at.",
+        tags: ["sensors"]
     },
     "enifir": {
         arguments: ["vector", "vector"],
         returns: [["block", "nil"]],
-        description: "Gets an block between two vectors."
+        description: "Gets an block between two vectors.",
+        tags: ["sensors"]
     },
     "esipal": {
         arguments: ["entity"],
         returns: [["vector", "nil"]],
-        description: "Gets the block face an entity is looking at."
+        description: "Gets the block face an entity is looking at.",
+        tags: ["sensors"]
     },
     "esipalgea": {
         arguments: ["entity"],
         returns: [["vector", "nil"]],
-        description: "Gets the location of the block adjacent to the block face an entity is looking at."
+        description: "Gets the location of the block adjacent to the block face an entity is looking at.",
+        tags: ["sensors"]
     },
     "wix": {
         arguments: ["scalar", "scalar", "vector"],
         returns: ["list"],
-        description: "Gets a list of entities in a range."
+        description: "Gets a list of entities in a range.",
+        tags: ["sensors"]
     },
     "esizon": {
         arguments: ["scalar", "scalar", "scalar", "entity"],
         returns: ["list"],
-        description: "Gets a list of entities in a cone the entity is looking at."
+        description: "Gets a list of entities in a cone the entity is looking at.",
+        tags: ["collectors"]
     },
     "esilib": {
         arguments: ["entity"],
         returns: ["vector"],
-        description: "Gets the direction an entity is looking at."
+        description: "Gets the direction an entity is looking at.",
+        tags: ["collectors"]
     },
     "gea": {
         arguments: ["entity"],
         returns: ["vector"],
-        description: "Gets the location of an entity."
+        description: "Gets the location of an entity.",
+        tags: ["collectors"]
     },
     "biegea": {
         arguments: ["entity"],
         returns: ["vector"],
-        description: "Gets the head location of an entity."
+        description: "Gets the head location of an entity.",
+        tags: ["collectors"]
     },
     "firugea": {
         arguments: ["vector"],
         returns: [["block", "nil"]],
-        description: "Gets a block from its location."
+        description: "Gets a block from its location.",
+        tags: ["collectors"]
     },
     "irapal": {
         arguments: ["vector", "entity"],
         returns: [["block", "nil"]],
-        description: "Localize a vector to an entity."
+        description: "Localize a vector to an entity.",
+        tags: ["collectors"]
     },
     "debug": {
         arguments: [],
         returns: [],
-        description: "Output akashic into chat."
+        description: "Output akashic into chat.",
+        tags: ["other"]
     },
     "fananim": {
         arguments: [],
         returns: [],
-        description: "Output akashic into chat."
+        description: "Output akashic into chat.",
+        tags: ["other"]
     },
     "fananimver": {
         arguments: ["entity"],
         returns: [["scalar", "nil"]],
-        description: "Output the arcana amount of an entity."
+        description: "Returns the arcana amount of an entity.",
+        tags: ["query"]
     },
     "het": {
         arguments: [],
         returns: ["nil"],
-        description: "Returns a null cluster."
+        description: "Returns a null cluster.",
+        tags: ["constant"]
     },
     "malibhet": {
         arguments: [],
         returns: ["vector"],
-        description: "Returns a [0,0,0] vector."
+        description: "Returns a [0,0,0] vector.",
+        tags: ["constant"]
     },
     "malibie": {
         arguments: [],
         returns: ["vector"],
-        description: "Returns an up cluster."
+        description: "Returns an up cluster.",
+        tags: ["constant"]
     },
     "malibfie": {
         arguments: [],
         returns: ["vector"],
-        description: "Returns an down cluster."
+        description: "Returns an down cluster.",
+        tags: ["constant"]
     },
     "malibdie": {
         arguments: [],
         returns: ["vector"],
-        description: "Returns an east cluster."
+        description: "Returns an east cluster.",
+        tags: ["constant"]
     },
     "malibcie": {
         arguments: [],
         returns: ["vector"],
-        description: "Returns an west cluster."
+        description: "Returns an west cluster.",
+        tags: ["constant"]
     },
     "malibjie": {
         arguments: [],
         returns: ["vector"],
-        description: "Returns an south cluster."
+        description: "Returns an south cluster.",
+        tags: ["constant"]
     },
     "malibkie": {
         arguments: [],
         returns: ["vector"],
-        description: "Returns an north cluster."
+        description: "Returns an north cluster.",
+        tags: ["constant"]
     },
     "HAFOZON": {
         arguments: [],
         returns: ["scalar"],
-        description: "Returns PI."
+        description: "Returns PI.",
+        tags: ["constant"]
     },
     "HOLOZON": {
         arguments: [],
         returns: ["vector"],
-        description: "Returns TAU (2PI)."
+        description: "Returns TAU (2PI).",
+        tags: ["constant"]
     },
     "IRA": {
         arguments: [],
         returns: ["boolean"],
-        description: "Returns true."
+        description: "Returns true.",
+        tags: ["constant"]
     },
     "IRO": {
         arguments: [],
         returns: ["boolean"],
-        description: "Returns false."
+        description: "Returns false.",
+        tags: ["constant"]
     },
     "MALEME?": {
         arguments: ["entity"],
         returns: ["boolean"],
-        description: "Returns true if the entity is sprinting, false if not."
+        description: "Returns true if the entity is sprinting, false if not.",
+        tags: ["query"]
     },
     "XIBFIE?": {
         arguments: ["entity"],
         returns: ["boolean"],
-        description: "Returns true if the entity is sneaking, false if not."
+        description: "Returns true if the entity is sneaking, false if not.",
+        tags: ["query"]
     },
     "GELAQAR?": {
         arguments: ["entity"],
         returns: ["boolean"],
-        description: "Returns true if the entity is in water, false if not."
+        description: "Returns true if the entity is in water, false if not.",
+        tags: ["query"]
     },
     "GELACOR?": {
         arguments: ["entity"],
         returns: ["boolean"],
-        description: "Returns true if the entity is on the ground, false if not."
+        description: "Returns true if the entity is on the ground, false if not.",
+        tags: ["query"]
     },
     "MALBIE?": {
         arguments: ["entity"],
         returns: ["boolean"],
-        description: "Returns true if the entity is jumping, false if not."
+        description: "Returns true if the entity is jumping, false if not.",
+        tags: ["query"]
     },
     "MALFIE?": {
         arguments: ["entity"],
         returns: ["boolean"],
-        description: "Returns true if the entity is falling, false if not."
+        description: "Returns true if the entity is falling, false if not.",
+        tags: ["query"]
     },
     "YIC?": {
         arguments: ["entity"],
         returns: ["scalar"],
-        description: "Returns the hp of the entity."
+        description: "Returns the hp of the entity.",
+        tags: ["query"]
     },
     "EXIRER?": {
         arguments: [],
         returns: ["scalar"],
-        description: "See the ouroboros loop number."
+        description: "See the ouroboros loop number.",
+        tags: ["query"]
     },
     "TULENI?": {
         arguments: [["entity", "block", "item"]],
         returns: [["word", "nil"]],
-        description: "Returns type ID of thing."
+        description: "Returns type ID of thing.",
+        tags: ["query"]
     },
     "ABIGIM?": {
         arguments: [["entity", "item"]],
         returns: [["word","nil"]],
-        description: "Returns the name of thing."
+        description: "Returns the name of thing.",
+        tags: ["query"]
     },
     "TULNIM?": {
         arguments: ["item"],
         returns: ["scalar"],
-        description: "Returns the stack amount of an item."
+        description: "Returns the stack amount of an item.",
+        tags: ["query"]
     },
     "ITESULNIM?": {
         arguments: ["entity"],
         returns: ["scalar"],
-        description: "Returns the player's selected slot. Returns 0 if entity is not player."
+        description: "Returns the player's selected slot. Returns 0 if entity is not player.",
+        tags: ["query"]
     }
 };
