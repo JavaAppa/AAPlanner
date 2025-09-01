@@ -10,7 +10,7 @@ function createClusterTag(a) {
 function setClusterList(data, container) {
     console.log(data);
     if(data.length == 0) {
-        container.innerText = "None found.";
+        container.innerText = "N/A";
         return;
     }
     for(let a of data) {
@@ -196,7 +196,7 @@ const incantTypes = {
     "fananimver": {
         arguments: ["entity"],
         returns: [["scalar", "nil"]],
-        description: "Output arcana amount of an entity"
+        description: "Output the arcana amount of an entity."
     },
     "het": {
         arguments: [],
