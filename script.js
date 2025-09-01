@@ -35,6 +35,8 @@ function updateIncantSelectorUI(incant) {
 
         id("newIncantReturnList").innerHTML = "";
         setClusterList(incData.returns, id("newIncantReturnList"));
+
+        id("newIncantDescription").innerText = incData.description;
     }
 }
 
