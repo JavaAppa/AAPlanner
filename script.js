@@ -315,7 +315,7 @@ const incantTypes = {
     },
     "ITESULNIM?": {
         arguments: ["entity"],
-        returns: ["number"],
+        returns: ["scalar"],
         description: "Returns the player's selected slot. Returns 0 if entity is not player."
     }
 };
