@@ -8,6 +8,10 @@ function createClusterTag(a) {
 }
 
 function setClusterList(data, container) {
+    if(data.length == 0) {
+        container.innerText = "None found.";
+        return;
+    }
     for(let a of data) {
         if(typeof a == "object") {
             /** Multiple types possible. */
@@ -22,9 +26,6 @@ function setClusterList(data, container) {
         } else {
             container.appendChild(createClusterTag(a));
         }
-    }
-    if(data.length == 0) {
-        container.innerText = "None found.";
     }
 }
 
