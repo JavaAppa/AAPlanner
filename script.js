@@ -1,5 +1,49 @@
 function id(id) { return document.getElementById(id); }
 
+function createClusterTag(a) {
+    let arg = document.createElement("span");
+    arg.classList.add("cluster", clusterTypes[a].styleTag);
+    arg.innerText = clusterTypes[a].name;
+    return arg;
+}
+
+function setClusterList(data, container) {
+    for(let a of data) {
+        if(typeof a == "object") {
+            /** Multiple types possible. */
+            container.innerHTML += "[";
+            for(let b in a) {
+                container.appendChild(createClusterTag(a[b]));
+                if(b != a.length - 1) {
+                    container.innerHTML += ",";
+                }
+            }
+            container.innerHTML += "]";
+        } else {
+            container.appendChild(createClusterTag(a));
+        }
+    }
+}
+
+function updateIncantSelectorUI(incant) {
+    let incData = incantTypes[incant];
+    if(incData != null) {
+        id("editIncantSelectedTitle").innerText = incant.toUpperCase();
+
+        id("newIncantArgumentList").innerHTML = "";
+        setClusterList(incData.arguments, id("newIncantArgumentList"));
+
+        id("newIncantReturnList").innerHTML = "";
+        setClusterList(incData.returns, id("newIncantReturnList"));
+    }
+}
+
+id("newIncantSelector").addEventListener("change", function() {
+    let v = this.value;
+    updateIncantSelectorUI(v);
+});
+
+
 const clusterTypes = {
     entity: {
         "styleTag": "entity",
@@ -42,37 +86,17 @@ const clusterTypes = {
 const incantTypes = {
     ete: {
         arguments: ["nil"],
-        returns: ["entity"]
+        returns: ["entity"],
+        description: "Gets self."
+    },
+    esijit: {
+        arguments: ["entity"],
+        returns: [["entity", "null"]],
+        description: "Gets the entity an entity is looking at."
     },
     gea: {
         arguments: ["entity"],
-        returns: ["vector"]
+        returns: ["vector"],
+        description: "Gets the location of an entity."
     }
 };
-
-function updateIncantSelectorUI(incant) {
-    let incData = incantTypes[incant];
-    if(incData != null) {
-        id("editIncantSelectedTitle").innerText = incant.toUpperCase();
-
-        id("newIncantArgumentList").innerHTML = "";
-        for(let a of incData.arguments) {
-            let arg = document.createElement("span");
-            arg.classList.add("cluster", clusterTypes[a].styleTag);
-            arg.innerText = clusterTypes[a].name;
-            id("newIncantArgumentList").appendChild(arg);
-        }
-        id("newIncantReturnList").innerHTML = "";
-        for(let r of incData.returns) {
-            let ret = document.createElement("span");
-            ret.classList.add("cluster", clusterTypes[r].styleTag);
-            ret.innerText = clusterTypes[r].name;
-            id("newIncantReturnList").appendChild(ret);
-        }
-    }
-}
-
-id("newIncantSelector").addEventListener("change", function() {
-    let v = this.value;
-    updateIncantSelectorUI(v);
-});
