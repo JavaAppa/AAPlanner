@@ -18,10 +18,7 @@
 		<br>
 		<div class="sectionContainer">
 			<div class="sectionTitle">Spell List</div>
-			<div class="sectionContent" id="spellContainer">
-				<div class="spellIncant">ETE</div>
-				<div class="spellIncant">GEA</div>
-			</div>
+			<div class="sectionContent" id="spellContainer"></div>
 		</div>
 
 		<div class="sectionContainer">
@@ -29,13 +26,16 @@
 			<div class="sectionContent">
 				<label>
 					Select Incant: 
-					<select id="newIncantSelector"></select>
+					<select id="newIncantSelector">
+						<option value="0"></option>
+					</select>
 				</label>
 				<br><br>
 				<b>INCANT NAME: <div id="editIncantSelectedTitle" class="inlineCluster spellIncant">ETE</div></b>
 				<p>Arguments: <span id="newIncantArgumentList"><span class="cluster vector">Vector</span>, <span class="cluster entity">Entity</span>, <span class="cluster scalar">Scalar</span></span></p>
 				<p>Returns: <span id="newIncantReturnList"><span class="cluster null">Null</span></span></p>
 				<p id="newIncantDescription"></p>
+				<button id="newIncantSubmit">Add Incant</button>
 			</div>
 		</div>
 

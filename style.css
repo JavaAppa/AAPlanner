@@ -49,6 +49,17 @@ select, option {
 	color: #222;
 }
 
+#newIncantSubmit {
+	background-color: #8f418f;
+    padding: 10px;
+    border-radius: 20px;
+    border: 5px solid #b06ab0;
+}
+
+#newIncantSubmit:hover {
+    background-color: #b06ab0;
+}
+
 .cluster {
 	border-radius: 5px;
 	padding: 5px;

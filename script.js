@@ -52,6 +52,16 @@ window.addEventListener("load", function() {
         opt.innerText = i.toUpperCase();
         id("newIncantSelector").appendChild(opt);
     }
+
+    id("newIncantSubmit").addEventListener("click", function() {
+        if(id("newIncantSelector").value != 0) {
+            let incant = document.createElement("div");
+            incant.classList.add("spellIncant");
+            incant.innerText = id("newIncantSelector").value.toUpperCase();
+            id("spellContainer").appendChild(incant);
+        }
+        id("newIncantSelector").value = "0";
+    });
 });
 
 const clusterTypes = {
