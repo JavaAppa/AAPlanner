@@ -53,6 +53,11 @@ select, option {
 	border-radius: 5px;
 	padding: 5px;
 }
+.inlineCluster {
+	border-radius: 5px;
+	padding: 5px;
+	display:inline-block;
+}
 
 
 .cluster.entity {
