@@ -19,6 +19,7 @@ h1, h2, h3 {
 #spellContainer {
 	display: flex;
 	gap:5px;
+	flex-wrap: wrap;
 }
 
 .sectionContent {

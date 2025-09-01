@@ -23,6 +23,9 @@ function setClusterList(data, container) {
             container.appendChild(createClusterTag(a));
         }
     }
+    if(data.length == 0) {
+        container.innerText = "None found.";
+    }
 }
 
 function updateIncantSelectorUI(incant) {
@@ -108,79 +111,209 @@ const clusterTypes = {
 };
 
 const incantTypes = {
-    ete: {
-        arguments: ["nil"],
+    "ete": {
+        arguments: [],
         returns: ["entity"],
         description: "Gets self."
     },
-    esijit: {
+    "esijit": {
         arguments: ["entity"],
         returns: [["entity", "nil"]],
         description: "Gets the entity an entity is looking at."
     },
-    enijit: {
+    "enijit": {
         arguments: ["vector", "vector"],
         returns: [["entity", "nil"]],
         description: "Gets an entity between two vectors."
     },
-    esifir: {
+    "esifir": {
         arguments: ["entity"],
         returns: [["block", "nil"]],
         description: "Gets the block an entity is looking at."
     },
-    enifir: {
+    "enifir": {
         arguments: ["vector", "vector"],
         returns: [["block", "nil"]],
         description: "Gets an block between two vectors."
     },
-    esipal: {
+    "esipal": {
         arguments: ["entity"],
         returns: [["vector", "nil"]],
         description: "Gets the block face an entity is looking at."
     },
-    esipalgea: {
+    "esipalgea": {
         arguments: ["entity"],
         returns: [["vector", "nil"]],
         description: "Gets the location of the block adjacent to the block face an entity is looking at."
     },
-    wix: {
+    "wix": {
         arguments: ["scalar", "scalar", "vector"],
         returns: ["list"],
         description: "Gets a list of entities in a range."
     },
-    esizon: {
+    "esizon": {
         arguments: ["scalar", "scalar", "scalar", "entity"],
         returns: ["list"],
         description: "Gets a list of entities in a cone the entity is looking at."
     },
-    esilib: {
+    "esilib": {
         arguments: ["entity"],
         returns: ["vector"],
         description: "Gets the direction an entity is looking at."
     },
-    gea: {
+    "gea": {
         arguments: ["entity"],
         returns: ["vector"],
         description: "Gets the location of an entity."
     },
-    biegea: {
+    "biegea": {
         arguments: ["entity"],
         returns: ["vector"],
         description: "Gets the head location of an entity."
     },
-    firugea: {
+    "firugea": {
         arguments: ["vector"],
         returns: [["block", "nil"]],
         description: "Gets a block from its location."
     },
-    irapal: {
+    "irapal": {
         arguments: ["vector", "entity"],
         returns: [["block", "nil"]],
         description: "Localize a vector to an entity."
     },
-    debug: {
-        arguments: ["nil"],
-        returns: ["nil"],
+    "debug": {
+        arguments: [],
+        returns: [],
         description: "Output akashic into chat."
+    },
+    "fananim": {
+        arguments: [],
+        returns: [],
+        description: "Output akashic into chat."
+    },
+    "fananimver": {
+        arguments: ["entity"],
+        returns: [["scalar", "nil"]],
+        description: "Output arcana amount of an entity"
+    },
+    "het": {
+        arguments: [],
+        returns: ["nil"],
+        description: "Returns a null cluster."
+    },
+    "malibhet": {
+        arguments: [],
+        returns: ["vector"],
+        description: "Returns a [0,0,0] vector."
+    },
+    "malibie": {
+        arguments: [],
+        returns: ["vector"],
+        description: "Returns an up cluster."
+    },
+    "malibfie": {
+        arguments: [],
+        returns: ["vector"],
+        description: "Returns an down cluster."
+    },
+    "malibdie": {
+        arguments: [],
+        returns: ["vector"],
+        description: "Returns an east cluster."
+    },
+    "malibcie": {
+        arguments: [],
+        returns: ["vector"],
+        description: "Returns an west cluster."
+    },
+    "malibjie": {
+        arguments: [],
+        returns: ["vector"],
+        description: "Returns an south cluster."
+    },
+    "malibkie": {
+        arguments: [],
+        returns: ["vector"],
+        description: "Returns an north cluster."
+    },
+    "HAFOZON": {
+        arguments: [],
+        returns: ["scalar"],
+        description: "Returns PI."
+    },
+    "HOLOZON": {
+        arguments: [],
+        returns: ["vector"],
+        description: "Returns TAU (2PI)."
+    },
+    "IRA": {
+        arguments: [],
+        returns: ["boolean"],
+        description: "Returns true."
+    },
+    "IRO": {
+        arguments: [],
+        returns: ["boolean"],
+        description: "Returns false."
+    },
+    "MALEME?": {
+        arguments: ["entity"],
+        returns: ["boolean"],
+        description: "Returns true if the entity is sprinting, false if not."
+    },
+    "XIBFIE?": {
+        arguments: ["entity"],
+        returns: ["boolean"],
+        description: "Returns true if the entity is sneaking, false if not."
+    },
+    "GELAQAR?": {
+        arguments: ["entity"],
+        returns: ["boolean"],
+        description: "Returns true if the entity is in water, false if not."
+    },
+    "GELACOR?": {
+        arguments: ["entity"],
+        returns: ["boolean"],
+        description: "Returns true if the entity is on the ground, false if not."
+    },
+    "MALBIE?": {
+        arguments: ["entity"],
+        returns: ["boolean"],
+        description: "Returns true if the entity is jumping, false if not."
+    },
+    "MALFIE?": {
+        arguments: ["entity"],
+        returns: ["boolean"],
+        description: "Returns true if the entity is falling, false if not."
+    },
+    "YIC?": {
+        arguments: ["entity"],
+        returns: ["scalar"],
+        description: "Returns the hp of the entity."
+    },
+    "EXIRER?": {
+        arguments: [],
+        returns: ["scalar"],
+        description: "See the ouroboros loop number."
+    },
+    "TULENI?": {
+        arguments: [["entity", "block", "item"]],
+        returns: [["word", "nil"]],
+        description: "Returns type ID of thing."
+    },
+    "ABIGIM?": {
+        arguments: [["entity", "item"]],
+        returns: [["word" "nil"]],
+        description: "Returns the name of thing."
+    },
+    "TULNIM?": {
+        arguments: ["item"],
+        returns: ["scalar"],
+        description: "Returns the stack amount of an item."
+    },
+    "ITESULNIM?": {
+        arguments: ["entity"],
+        returns: ["number"],
+        description: "Returns the player's selected slot. Returns 0 if entity is not player."
     }
 };
