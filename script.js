@@ -31,11 +31,11 @@ function setClusterList(data, container) {
 }
 
 function createIncantTag(incant) {
-    let incant = document.createElement("div");
-    incant.classList.add("spellIncant");
-    incant.classList.add(...incantTypes[incant].tags);
-    incant.innerText = incant.toUpperCase();
-    return incant;
+    let element = document.createElement("div");
+    element.classList.add("spellIncant");
+    element.classList.add(...incantTypes[incant].tags);
+    element.innerText = incant.toUpperCase();
+    return element;
 }
 
 function updateIncantSelectorUI(incant) {
