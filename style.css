@@ -126,3 +126,11 @@ select, option {
 .spellIncant.constant {
 	color: #b2ffab;
 }
+
+.sectionTitleContainer {
+	display:flex;
+}
+
+.sectionTitleContainer.sectionTitle {
+	flex: 0 0 auto;
+}
