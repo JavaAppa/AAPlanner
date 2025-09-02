@@ -135,6 +135,7 @@ select, option {
 	flex: 0 0 auto;
 }
 .sectionTitleContainer .sectionTitle:not(.sectionTitleSelected) {
-	background-color: #262029;
+	background-color: #302834;
 	color: #ccc;
+	cursor:pointer;
 }
