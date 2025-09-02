@@ -30,6 +30,14 @@ function setClusterList(data, container) {
     }
 }
 
+function createIncantTag(incant) {
+    let incant = document.createElement("div");
+    incant.classList.add("spellIncant");
+    incant.classList.add(...incantTypes[incant].tags);
+    incant.innerText = incant.toUpperCase();
+    return incant;
+}
+
 function updateIncantSelectorUI(incant) {
     let incData = incantTypes[incant];
     if(incData != null) {
@@ -60,10 +68,7 @@ window.addEventListener("load", function() {
 
     id("newIncantSubmit").addEventListener("click", function() {
         if(id("newIncantSelector").value != 0) {
-            let incant = document.createElement("div");
-            incant.classList.add("spellIncant");
-            incant.innerText = id("newIncantSelector").value.toUpperCase();
-            id("spellContainer").appendChild(incant);
+            id("spellContainer").appendChild(createIncantTag(id("newIncantSelector").value));
         }
         id("newIncantSelector").value = "0";
     });
@@ -117,85 +122,85 @@ const incantTypes = {
         arguments: [],
         returns: ["entity"],
         description: "Gets self.",
-        tags: ["sensors"]
+        tags: ["sensor"]
     },
     "esijit": {
         arguments: ["entity"],
         returns: [["entity", "nil"]],
         description: "Gets the entity an entity is looking at.",
-        tags: ["sensors"]
+        tags: ["sensor"]
     },
     "enijit": {
         arguments: ["vector", "vector"],
         returns: [["entity", "nil"]],
         description: "Gets an entity between two vectors.",
-        tags: ["sensors"]
+        tags: ["sensor"]
     },
     "esifir": {
         arguments: ["entity"],
         returns: [["block", "nil"]],
         description: "Gets the block an entity is looking at.",
-        tags: ["sensors"]
+        tags: ["sensor"]
     },
     "enifir": {
         arguments: ["vector", "vector"],
         returns: [["block", "nil"]],
         description: "Gets an block between two vectors.",
-        tags: ["sensors"]
+        tags: ["sensor"]
     },
     "esipal": {
         arguments: ["entity"],
         returns: [["vector", "nil"]],
         description: "Gets the block face an entity is looking at.",
-        tags: ["sensors"]
+        tags: ["sensor"]
     },
     "esipalgea": {
         arguments: ["entity"],
         returns: [["vector", "nil"]],
         description: "Gets the location of the block adjacent to the block face an entity is looking at.",
-        tags: ["sensors"]
+        tags: ["sensor"]
     },
     "wix": {
         arguments: ["scalar", "scalar", "vector"],
         returns: ["list"],
         description: "Gets a list of entities in a range.",
-        tags: ["sensors"]
+        tags: ["sensor"]
     },
     "esizon": {
         arguments: ["scalar", "scalar", "scalar", "entity"],
         returns: ["list"],
         description: "Gets a list of entities in a cone the entity is looking at.",
-        tags: ["collectors"]
+        tags: ["collector"]
     },
     "esilib": {
         arguments: ["entity"],
         returns: ["vector"],
         description: "Gets the direction an entity is looking at.",
-        tags: ["collectors"]
+        tags: ["collector"]
     },
     "gea": {
         arguments: ["entity"],
         returns: ["vector"],
         description: "Gets the location of an entity.",
-        tags: ["collectors"]
+        tags: ["collector"]
     },
     "biegea": {
         arguments: ["entity"],
         returns: ["vector"],
         description: "Gets the head location of an entity.",
-        tags: ["collectors"]
+        tags: ["collector"]
     },
     "firugea": {
         arguments: ["vector"],
         returns: [["block", "nil"]],
         description: "Gets a block from its location.",
-        tags: ["collectors"]
+        tags: ["collector"]
     },
     "irapal": {
         arguments: ["vector", "entity"],
         returns: [["block", "nil"]],
         description: "Localize a vector to an entity.",
-        tags: ["collectors"]
+        tags: ["collector"]
     },
     "debug": {
         arguments: [],

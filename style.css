@@ -113,3 +113,16 @@ select, option {
 	background-color: rgb(46, 46, 46);
 	color: #a0a0a0;
 }
+
+.spellIncant.collector {
+	color: #abf5ff;
+}
+.spellIncant.sensor {
+	color: #fff9ab;
+}
+.spellIncant.query {
+	color: #ffabab;
+}
+.spellIncant.constant {
+	color: #b2ffab;
+}
