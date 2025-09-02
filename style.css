@@ -130,6 +130,9 @@ select, option {
 .spellIncant.constant {
 	color: #b2ffab;
 }
+.spellIncant.manipulator {
+	color: #abb1ff;
+}
 
 .sectionTitleContainer {
 	display:flex;
