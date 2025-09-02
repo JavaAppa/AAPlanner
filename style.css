@@ -131,10 +131,10 @@ select, option {
 	display:flex;
 }
 
-.sectionTitleContainer.sectionTitle {
+.sectionTitleContainer .sectionTitle {
 	flex: 0 0 auto;
 }
-.sectionTitleContainer.sectionTitle:not(.sectionTitleSelected) {
+.sectionTitleContainer .sectionTitle:not(.sectionTitleSelected) {
 	background-color: #262029;
 	color: #ccc;
 }
