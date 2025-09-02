@@ -113,6 +113,10 @@ select, option {
 	background-color: rgb(46, 46, 46);
 	color: #a0a0a0;
 }
+.cluster.node {
+	background-color: rgb(134, 105, 153);
+	color: #4e344c;
+}
 
 .spellIncant.collector {
 	color: #abf5ff;

@@ -99,6 +99,10 @@ const clusterTypes = {
         "styleTag": "block",
         "name": "Block"
     },
+    node: {
+        "styleTag": "node",
+        "name": "Node"
+    },
     vector: {
         "styleTag": "vector",
         "name": "Vector"
@@ -134,151 +138,151 @@ const clusterTypes = {
 };
 
 const incantTypes = {
-    "ete": {
+    "ETE": {
         arguments: [],
         returns: ["entity"],
         description: "Gets self.",
         tags: ["sensor"]
     },
-    "esijit": {
+    "ESIJIT": {
         arguments: ["entity"],
         returns: [["entity", "nil"]],
         description: "Gets the entity an entity is looking at.",
         tags: ["sensor"]
     },
-    "enijit": {
+    "ENIJIT": {
         arguments: ["vector", "vector"],
         returns: [["entity", "nil"]],
         description: "Gets an entity between two vectors.",
         tags: ["sensor"]
     },
-    "esifir": {
+    "ESIFIR": {
         arguments: ["entity"],
         returns: [["block", "nil"]],
         description: "Gets the block an entity is looking at.",
         tags: ["sensor"]
     },
-    "enifir": {
+    "ENIFIR": {
         arguments: ["vector", "vector"],
         returns: [["block", "nil"]],
         description: "Gets an block between two vectors.",
         tags: ["sensor"]
     },
-    "esipal": {
+    "ESIPAL": {
         arguments: ["entity"],
         returns: [["vector", "nil"]],
         description: "Gets the block face an entity is looking at.",
         tags: ["sensor"]
     },
-    "esipalgea": {
+    "ESIPALGEA": {
         arguments: ["entity"],
         returns: [["vector", "nil"]],
         description: "Gets the location of the block adjacent to the block face an entity is looking at.",
         tags: ["sensor"]
     },
-    "wix": {
+    "WIX": {
         arguments: ["scalar", "scalar", "vector"],
         returns: ["list"],
         description: "Gets a list of entities in a range.",
         tags: ["sensor"]
     },
-    "esizon": {
+    "ESIZON": {
         arguments: ["scalar", "scalar", "scalar", "entity"],
         returns: ["list"],
         description: "Gets a list of entities in a cone the entity is looking at.",
         tags: ["collector"]
     },
-    "esilib": {
+    "ESILIB": {
         arguments: ["entity"],
         returns: ["vector"],
         description: "Gets the direction an entity is looking at.",
         tags: ["collector"]
     },
-    "gea": {
-        arguments: ["entity"],
+    "GEA": {
+        arguments: ["entity", "block", "node"],
         returns: ["vector"],
         description: "Gets the location of an entity.",
         tags: ["collector"]
     },
-    "biegea": {
+    "BIEGEA": {
         arguments: ["entity"],
         returns: ["vector"],
         description: "Gets the head location of an entity.",
         tags: ["collector"]
     },
-    "firugea": {
+    "FIRUGEA": {
         arguments: ["vector"],
         returns: [["block", "nil"]],
         description: "Gets a block from its location.",
         tags: ["collector"]
     },
-    "irapal": {
+    "IRAPAL": {
         arguments: ["vector", "entity"],
         returns: [["block", "nil"]],
         description: "Localize a vector to an entity.",
         tags: ["collector"]
     },
-    "debug": {
+    "DEBUG": {
         arguments: [],
         returns: [],
         description: "Output akashic into chat.",
         tags: ["other"]
     },
-    "fananim": {
+    "FANANIM": {
         arguments: [],
         returns: [],
         description: "Output akashic into chat.",
         tags: ["other"]
     },
-    "fananimver": {
+    "FANANIMVER": {
         arguments: ["entity"],
         returns: [["scalar", "nil"]],
         description: "Returns the arcana amount of an entity.",
         tags: ["query"]
     },
-    "het": {
+    "HET": {
         arguments: [],
         returns: ["nil"],
         description: "Returns a null cluster.",
         tags: ["constant"]
     },
-    "malibhet": {
+    "MALIBHET": {
         arguments: [],
         returns: ["vector"],
         description: "Returns a [0,0,0] vector.",
         tags: ["constant"]
     },
-    "malibie": {
+    "MALIBIE": {
         arguments: [],
         returns: ["vector"],
         description: "Returns an up cluster.",
         tags: ["constant"]
     },
-    "malibfie": {
+    "MALIBFIE": {
         arguments: [],
         returns: ["vector"],
         description: "Returns an down cluster.",
         tags: ["constant"]
     },
-    "malibdie": {
+    "MALIBDIE": {
         arguments: [],
         returns: ["vector"],
         description: "Returns an east cluster.",
         tags: ["constant"]
     },
-    "malibcie": {
+    "MALIBCIE": {
         arguments: [],
         returns: ["vector"],
         description: "Returns an west cluster.",
         tags: ["constant"]
     },
-    "malibjie": {
+    "MALIBJIE": {
         arguments: [],
         returns: ["vector"],
         description: "Returns an south cluster.",
         tags: ["constant"]
     },
-    "malibkie": {
+    "MALIBKIE": {
         arguments: [],
         returns: ["vector"],
         description: "Returns an north cluster.",
