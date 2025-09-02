@@ -144,3 +144,7 @@ select, option {
 	color: #eee;
 	cursor:pointer;
 }
+
+.hidden {
+	display: none;
+}

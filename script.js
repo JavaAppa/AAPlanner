@@ -53,6 +53,17 @@ function updateIncantSelectorUI(incant) {
     }
 }
 
+function addTabEvListeners(tabs, windows) {
+    for(let i in tabs) {
+        tabs[i].addEventListener("click", function() {
+            for(let x of tabs) { x.classList.remove("sectionTitleSelected"); }
+            this.classList.add("sectionTitleSelected");
+            for(let x of windows) { x.classList.add("hidden"); }
+            windows[i].classList.remove("hidden");
+        });
+    }
+}
+
 id("newIncantSelector").addEventListener("change", function() {
     let v = this.value;
     updateIncantSelectorUI(v);
@@ -72,6 +83,11 @@ window.addEventListener("load", function() {
         }
         id("newIncantSelector").value = "0";
     });
+
+    addTabEvListeners(
+        [id("addIncantTitle"),  id("editIncantTitle")],
+        [id("addIncantWindow"), id("editIncantWindow")]
+    );
 });
 
 const clusterTypes = {
@@ -363,5 +379,59 @@ const incantTypes = {
         returns: ["scalar"],
         description: "Returns the player's selected slot. Returns 0 if entity is not player.",
         tags: ["query"]
+    },
+    "SINVERA": {
+        arguments: [["scalar","vector","rotation"],["scalar","vector","rotation"]],
+        returns: [["scalar","vector","rotation"]],
+        description: "Returns the sum of two values.",
+        tags: ["manipulator"]
+    },
+    "TOCOVER": {
+        arguments: [["scalar","vector"],["scalar","vector"]],
+        returns: [["scalar","vector"]],
+        description: "Returns the product of two values.",
+        tags: ["manipulator"]
+    },
+    "TOCOVAR": {
+        arguments: [["scalar","vector"],["scalar","vector"]],
+        returns: [["scalar","vector"]],
+        description: "Returns the quotient of two values.",
+        tags: ["manipulator"]
+    },
+    "COS": {
+        arguments: ["scalar"],
+        returns: ["scalar"],
+        description: "Returns the cosine of a number.",
+        tags: ["manipulator"]
+    },
+    "SIN": {
+        arguments: ["scalar"],
+        returns: ["scalar"],
+        description: "Returns the sine of a number.",
+        tags: ["manipulator"]
+    },
+    "TAN": {
+        arguments: ["scalar"],
+        returns: ["scalar"],
+        description: "Returns the tangent of a number.",
+        tags: ["manipulator"]
+    },
+    "ACOS": {
+        arguments: ["scalar"],
+        returns: ["scalar"],
+        description: "Returns the arccosine of a number.",
+        tags: ["manipulator"]
+    },
+    "ASIN": {
+        arguments: ["scalar"],
+        returns: ["scalar"],
+        description: "Returns the arcsine of a number.",
+        tags: ["manipulator"]
+    },
+    "ATAN": {
+        arguments: ["scalar"],
+        returns: ["scalar"],
+        description: "Returns the arctangent of a number.",
+        tags: ["manipulator"]
     }
 };

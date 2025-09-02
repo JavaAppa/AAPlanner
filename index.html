@@ -23,10 +23,10 @@
 
 		<div class="sectionContainer">
 			<div class="sectionTitleContainer">
-				<div class="sectionTitle sectionTitleSelected">Add Incant</div>
-				<div class="sectionTitle">Edit Incants</div>
+				<div id="addIncantTitle" class="sectionTitle sectionTitleSelected">Add Incant</div>
+				<div id="editIncantTitle" class="sectionTitle">Edit Incants</div>
 			</div>
-			<div class="sectionContent">
+			<div id="addIncantWindow" class="sectionContent">
 				<label>
 					Select Incant: 
 					<select id="newIncantSelector">
@@ -39,6 +39,9 @@
 				<p>Returns: <span id="newIncantReturnList"><span class="cluster null">Null</span></span></p>
 				<p id="newIncantDescription"></p>
 				<button id="newIncantSubmit">Add Incant</button>
+			</div>
+			<div id="editIncantWindow" class="sectionContent hidden">
+				Select an incant in the Incant List to edit it.
 			</div>
 		</div>
 
