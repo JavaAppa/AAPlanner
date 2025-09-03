@@ -134,6 +134,10 @@ const clusterTypes = {
     nil: {
         "styleTag": "null",
         "name": "Null"
+    },
+    any: {
+        "styleTag": "any",
+        "name": "Any"
     }
 };
 
@@ -437,5 +441,35 @@ const incantTypes = {
         returns: ["scalar"],
         description: "Returns the arctangent of a number.",
         tags: ["manipulator"]
+    },
+    "XABAS": {
+        arguments: ["any", "any"],
+        returns: ["any", "any"],
+        description: "Swaps the top two clusters.",
+        tags: ["akashic"]
+    },
+    "SINJIT": {
+        arguments: ["any"],
+        returns: ["any", "any"],
+        description: "Duplicates the top cluster.",
+        tags: ["akashic"]
+    },
+    "YINGIM": {
+        arguments: ["any"],
+        returns: [],
+        description: "Removes the top cluster.",
+        tags: ["akashic"]
+    },
+    "XIBFAN": {
+        arguments: ["scalar"],
+        returns: [],
+        description: "Delays the spell for a certain amount.",
+        tags: ["akashic"]
+    },
+    "HUSGIM": {
+        arguments: [],
+        returns: [],
+        description: "Prematurely halts the spell.",
+        tags: ["akashic"]
     }
 };

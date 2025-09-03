@@ -117,6 +117,10 @@ select, option {
 	background-color: rgb(134, 105, 153);
 	color: #4e344c;
 }
+.cluster.any {
+	background-color: rgb(241, 241, 241);
+	color: #222222;
+}
 
 .spellIncant.collector {
 	color: #abf5ff;
@@ -132,6 +136,9 @@ select, option {
 }
 .spellIncant.manipulator {
 	color: #abb1ff;
+}
+.spellIncant.akashic {
+	color: #ffabff;
 }
 
 .sectionTitleContainer {
