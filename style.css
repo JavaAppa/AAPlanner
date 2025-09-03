@@ -147,6 +147,9 @@ select, option {
 .spellIncant.rotation {
 	color: #b8abff;
 }
+.spellIncant.word {
+	color: #ffabe3;
+}
 
 .sectionTitleContainer {
 	display:flex;

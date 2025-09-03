@@ -571,5 +571,41 @@ const incantTypes = {
         returns: [],
         description: "Set the rotation of an entity.",
         tags: ["rotation"]
+    },
+    "HUSAWIS": {
+        arguments: ["word", "word"],
+        returns: ["list"],
+        description: "Returns a list of the first word split by the second.",
+        tags: ["word"]
+    },
+    "HUSASULWIS": {
+        arguments: ["word"],
+        returns: ["list"],
+        description: "Splits a word by spaces.",
+        tags: ["word"]
+    },
+    "SINVERAWIS": {
+        arguments: ["word", "word"],
+        returns: ["word"],
+        description: "Concatenate two words.",
+        tags: ["word"]
+    },
+    "IRASINWIS": {
+        arguments: ["word"],
+        returns: [],
+        description: "Outputs to world.",
+        tags: ["word"]
+    },
+    "SAHEJIT": {
+        arguments: ["word", "entity"],
+        returns: [],
+        description: "Sends message to a player.",
+        tags: ["word"]
+    },
+    "BURVIRSAH": {
+        arguments: ["entity"],
+        returns: ["word"],
+        description: "Returns the last message that a player has sent.",
+        tags: ["word"]
     }
 };
