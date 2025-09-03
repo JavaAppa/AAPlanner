@@ -607,5 +607,23 @@ const incantTypes = {
         returns: ["word"],
         description: "Returns the last message that a player has sent.",
         tags: ["word"]
+    },
+    "SINWIS": {
+        arguments: ["any"],
+        returns: [],
+        description: "Saves a cluster to memory.",
+        tags: ["memory"]
+    },
+    "BURWIS": {
+        arguments: [],
+        returns: ["any"],
+        description: "Recieves a cluster from memory.",
+        tags: ["memory"]
+    },
+    "YINWIS": {
+        arguments: [],
+        returns: [],
+        description: "Clear memory.",
+        tags: ["memory"]
     }
 };

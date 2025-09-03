@@ -150,6 +150,9 @@ select, option {
 .spellIncant.word {
 	color: #ffabe3;
 }
+.spellIncant.memory {
+	color: #a7a7a7;
+}
 
 .sectionTitleContainer {
 	display:flex;
