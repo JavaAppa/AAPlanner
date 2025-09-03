@@ -471,5 +471,77 @@ const incantTypes = {
         returns: [],
         description: "Prematurely halts the spell.",
         tags: ["akashic"]
+    },
+    "ABI": {
+        arguments: [],
+        returns: [],
+        description: "Opens a list.",
+        tags: ["list"]
+    },
+    "VIR": {
+        arguments: [],
+        returns: [],
+        description: "Closes a list.",
+        tags: ["list"]
+    },
+    "BURABI": {
+        arguments: ["list"],
+        returns: ["any"],
+        description: "Gets the highest cluster in a list.",
+        tags: ["list"]
+    },
+    "BURVIR": {
+        arguments: ["list"],
+        returns: ["any"],
+        description: "Gets the lowest cluster in a list.",
+        tags: ["list"]
+    },
+    "BURNIM": {
+        arguments: ["scalar", "list"],
+        returns: ["any"],
+        description: "Gets a cluster in a list at an index.",
+        tags: ["list"]
+    },
+    "BURKALAGIM": {
+        arguments: ["scalar", "scalar", "list"],
+        returns: ["list"],
+        description: "Gets a list of clusters between two indexes in a list.",
+        tags: ["list"]
+    },
+    "SINVERAKAL": {
+        arguments: ["list", "list"],
+        returns: ["list"],
+        description: "Merge two lists.",
+        tags: ["list"]
+    },
+    "XABAKAL": {
+        arguments: ["list"],
+        returns: ["list"],
+        description: "Reverse a list.",
+        tags: ["list"]
+    },
+    "SINAKAL": {
+        arguments: ["scalar"],
+        returns: ["list"],
+        description: "Creates a list from the top n clusters in the akashic.",
+        tags: ["list"]
+    },
+    "LIBAKAL": {
+        arguments: ["list"],
+        returns: ["scalar"],
+        description: "Gets the length of a list.",
+        tags: ["list"]
+    },
+    "YUTSINFAN": {
+        arguments: ["list", "list"],
+        returns: ["indeterminate"],
+        description: "Cast a list over a list. If a is list 1, and b is list 2, every index of b is casted onto every index of list a.",
+        tags: ["list"]
+    },
+    "SINFAN": {
+        arguments: ["list"],
+        returns: ["indeterminate"],
+        description: "Cast every index of a list.",
+        tags: ["list"]
     }
 };
