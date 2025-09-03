@@ -547,5 +547,29 @@ const incantTypes = {
         returns: ["indeterminate"],
         description: "Cast every index of a list.",
         tags: ["list"]
+    },
+    "YINLIBEZON": {
+        arguments: ["rotation"],
+        returns: ["list"],
+        description: "Converts a rotation to a list.",
+        tags: ["rotation"]
+    },
+    "SINLIBEZON": {
+        arguments: ["scalar", "scalar"],
+        returns: ["rotation"],
+        description: "Creates a rotation from two scalars.",
+        tags: ["rotation"]
+    },
+    "ESILIBEZON": {
+        arguments: ["entity"],
+        returns: ["rotation"],
+        description: "Gets a rotation from an entity.",
+        tags: ["rotation"]
+    },
+    "MALIBEZON": {
+        arguments: ["rotation", "entity"],
+        returns: [],
+        description: "Set the rotation of an entity.",
+        tags: ["rotation"]
     }
 };

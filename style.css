@@ -144,6 +144,9 @@ select, option {
 .spellIncant.akashic {
 	color: #ffabff;
 }
+.spellIncant.rotation {
+	color: #b8abff;
+}
 
 .sectionTitleContainer {
 	display:flex;
