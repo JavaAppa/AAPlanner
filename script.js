@@ -138,6 +138,10 @@ const clusterTypes = {
     any: {
         "styleTag": "any",
         "name": "Any"
+    },
+    indeterminate: {
+        "styleTag": "indeterminate",
+        "name": "Indeterminate"
     }
 };
 
