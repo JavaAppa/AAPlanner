@@ -30,13 +30,38 @@ function setClusterList(data, container) {
     }
 }
 
+let draggedIncant = null;
+let dragOffset = [];
+
 function createIncantTag(incant) {
     let element = document.createElement("div");
     element.classList.add("spellIncant");
     element.classList.add(...incantTypes[incant].tags);
     element.innerText = incant.toUpperCase();
+
+    element.addEventListener("mousedown", function() {
+        draggedIncant = this;
+        let bcr = this.getBoundingClientRect();
+        dragOffset = [bcr.x, bcr.y];
+
+        this.style.position = "fixed";
+        this.style.left = dragOffset[0] + "px";
+        this.style.top = dragOffset[1] + "px";
+    });
+
     return element;
 }
+
+document.addEventListener("mousemove", function(e) {
+    if(draggedIncant != null) {
+        draggedIncant.style.left = e.x + dragOffset[0] + "px";
+        draggedIncant.style.top = e.y + dragOffset[1] + "px";
+    }
+});
+
+document.addEventListener("mouseup", function() {
+    draggedIncant = null;
+});
 
 function updateIncantSelectorUI(incant) {
     let incData = incantTypes[incant];
@@ -92,54 +117,18 @@ window.addEventListener("load", function() {
 
 const clusterTypes = {
     entity: {"styleTag": "entity", "name": "Entity"},
-    block: {
-        "styleTag": "block",
-        "name": "Block"
-    },
-    node: {
-        "styleTag": "node",
-        "name": "Node"
-    },
-    vector: {
-        "styleTag": "vector",
-        "name": "Vector"
-    },
-    item: {
-        "styleTag": "item",
-        "name": "Item"
-    },
-    rotation: {
-        "styleTag": "rotation",
-        "name": "Rotation"
-    },
-    word: {
-        "styleTag": "word",
-        "name": "Word"
-    },
-    boolean: {
-        "styleTag": "boolean",
-        "name": "Boolean"
-    },
-    scalar: {
-        "styleTag": "scalar",
-        "name": "Scalar"
-    },
-    list: {
-        "styleTag": "list",
-        "name": "List"
-    },
-    nil: {
-        "styleTag": "null",
-        "name": "Null"
-    },
-    any: {
-        "styleTag": "any",
-        "name": "Any"
-    },
-    indeterminate: {
-        "styleTag": "indeterminate",
-        "name": "Indeterminate"
-    }
+    block: {"styleTag": "block", "name": "Block"},
+    node: {"styleTag": "node", "name": "Node"},
+    vector: {"styleTag": "vector", "name": "Vector"},
+    item: {"styleTag": "item", "name": "Item"},
+    rotation: {"styleTag": "rotation", "name": "Rotation"},
+    word: {"styleTag": "word", "name": "Word"},
+    boolean: {"styleTag": "boolean", "name": "Boolean"},
+    scalar: {"styleTag": "scalar", "name": "Scalar"},
+    list: {"styleTag": "list", "name": "List"},
+    nil: {"styleTag": "null", "name": "Null"},
+    any: {"styleTag": "any", "name": "Any"},
+    indeterminate: {"styleTag": "indeterminate", "name": "Indeterminate"}
 };
 
 const incantTypes = {
