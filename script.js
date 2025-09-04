@@ -42,7 +42,7 @@ function createIncantTag(incant) {
     element.addEventListener("mousedown", function(e) {
         draggedIncant = this;
         let bcr = this.getBoundingClientRect();
-        dragOffset = [e.left - bcr.left, e.top - bcr.top];
+        dragOffset = [e.clientX - bcr.left, e.clientTop - bcr.top];
 
         this.style.position = "fixed";
         this.style.left = dragOffset[0] + "px";
