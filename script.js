@@ -625,5 +625,83 @@ const incantTypes = {
         returns: [],
         description: "Clear memory.",
         tags: ["memory"]
+    },
+    "SINSAH": {
+        arguments: ["word", "entity"],
+        returns: [],
+        description: "Plays a sound to an entity.",
+        tags: ["illusion"]
+    },
+    "IF": {
+        arguments: ["list", "list", "boolean"],
+        returns: ["list"],
+        description: "Returns the second list if the boolean is true, or the first list if not.",
+        tags: ["logical"]
+    },
+    "WHEN": {
+        arguments: ["list", "boolean"],
+        returns: [["list", "nil"]],
+        description: "Returns the list if the boolean is true, null if not.",
+        tags: ["logical"]
+    },
+    "OR": {
+        arguments: ["boolean", "boolean"],
+        returns: ["boolean"],
+        description: "Returns boolean one OR boolean two.",
+        tags: ["logical"]
+    },
+    "AND": {
+        arguments: ["boolean", "boolean"],
+        returns: ["boolean"],
+        description: "Returns boolean one AND boolean two.",
+        tags: ["logical"]
+    },
+    "NOT": {
+        arguments: ["boolean"],
+        returns: ["boolean"],
+        description: "Returns the opposite boolean as the one given.",
+        tags: ["logical"]
+    },
+    "JIT": {
+        arguments: ["any", "any"],
+        returns: ["boolean"],
+        description: "Returns whether the two values are equal to each other.",
+        tags: ["logical"]
+    },
+    "IRAJIT": {
+        arguments: ["any", "any"],
+        returns: ["boolean"],
+        description: "Returns a precise evaluation of whether the two values are equal to each other.",
+        tags: ["logical"]
+    },
+    "IROJIT": {
+        arguments: ["boolean", "boolean"],
+        returns: ["boolean"],
+        description: "Returns Whether the two values are the same type.",
+        tags: ["logical"]
+    },
+    "JIRVAR": {
+        arguments: ["scalar", "scalar"],
+        returns: ["boolean"],
+        description: "Returns whether scalar 2 is less than scalar 1.",
+        tags: ["logical"]
+    },
+    "JIRVARJIT": {
+        arguments: ["scalar", "scalar"],
+        returns: ["boolean"],
+        description: "Returns whether scalar 2 is less than or equal to scalar 1.",
+        tags: ["logical"]
+    },
+    "JIRVER": {
+        arguments: ["scalar", "scalar"],
+        returns: ["boolean"],
+        description: "Returns whether scalar 2 is greater than scalar 1.",
+        tags: ["logical"]
+    },
+    "JIRVERJIT": {
+        arguments: ["scalar", "scalar"],
+        returns: ["boolean"],
+        description: "Returns whether scalar 2 is greater than or equal to scalar 1.",
+        tags: ["logical"]
     }
 };
