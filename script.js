@@ -39,10 +39,10 @@ function createIncantTag(incant) {
     element.classList.add(...incantTypes[incant].tags);
     element.innerText = incant.toUpperCase();
 
-    element.addEventListener("mousedown", function() {
+    element.addEventListener("mousedown", function(e) {
         draggedIncant = this;
         let bcr = this.getBoundingClientRect();
-        dragOffset = [bcr.x, bcr.y];
+        dragOffset = [e.left - bcr.left, e.top - bcr.top];
 
         this.style.position = "fixed";
         this.style.left = dragOffset[0] + "px";
