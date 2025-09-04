@@ -91,10 +91,7 @@ window.addEventListener("load", function() {
 });
 
 const clusterTypes = {
-    entity: {
-        "styleTag": "entity",
-        "name": "Entity"
-    },
+    entity: {"styleTag": "entity", "name": "Entity"},
     block: {
         "styleTag": "block",
         "name": "Block"
@@ -703,5 +700,35 @@ const incantTypes = {
         returns: ["boolean"],
         description: "Returns whether scalar 2 is greater than or equal to scalar 1.",
         tags: ["logical"]
+    },
+    "SINAFIL": {
+        arguments: ["scalar", "scalar", "scalar"],
+        returns: ["vector"],
+        description: "Converts 3 numbers to a vector.",
+        tags: ["vector"]
+    },
+    "YINAFIL": {
+        arguments: ["vector"],
+        returns: ["scalar", "scalar", "scalar"],
+        description: "Converts a vector to 3 numbers.",
+        tags: ["vector"]
+    },
+    "LIBAFIL": {
+        arguments: ["vector"],
+        returns: ["scalar"],
+        description: "Gets the magnitude of a vector.",
+        tags: ["vector"]
+    },
+    "LIBAS": {
+        arguments: ["vector", "vector"],
+        returns: ["scalar"],
+        description: "Gets the distance between two vectors.",
+        tags: ["vector"]
+    },
+    "IROKIE": {
+        arguments: ["vector"],
+        returns: ["vector"],
+        description: "Round a vector.",
+        tags: ["vector"]
     }
 };

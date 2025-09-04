@@ -156,6 +156,9 @@ select, option {
 .spellIncant.logical {
 	color: #afffd3;
 }
+.spellIncant.vector {
+	color: #89b7d1;
+}
 
 .sectionTitleContainer {
 	display:flex;
