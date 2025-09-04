@@ -47,6 +47,8 @@ function createIncantTag(incant) {
         this.style.position = "fixed";
         this.style.left = dragOffset[0] + "px";
         this.style.top = dragOffset[1] + "px";
+
+        document.body.style.userSelect = "none";
     });
 
     return element;
@@ -54,13 +56,14 @@ function createIncantTag(incant) {
 
 document.addEventListener("mousemove", function(e) {
     if(draggedIncant != null) {
-        draggedIncant.style.left = e.x + dragOffset[0] + "px";
-        draggedIncant.style.top = e.y + dragOffset[1] + "px";
+        draggedIncant.style.left = e.clientX + dragOffset[0] + "px";
+        draggedIncant.style.top = e.clientY + dragOffset[1] + "px";
     }
 });
 
 document.addEventListener("mouseup", function() {
     draggedIncant = null;
+    document.body.style.userSelect = "";
 });
 
 function updateIncantSelectorUI(incant) {
