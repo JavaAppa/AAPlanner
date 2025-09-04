@@ -42,7 +42,7 @@ function createIncantTag(incant) {
     element.addEventListener("mousedown", function(e) {
         draggedIncant = this;
         let bcr = this.getBoundingClientRect();
-        dragOffset = [e.clientX - bcr.left, e.clientTop - bcr.top];
+        dragOffset = [e.clientX - bcr.left, e.clientY - bcr.top];
 
         this.style.position = "fixed";
         this.style.left = dragOffset[0] + "px";
@@ -56,8 +56,8 @@ function createIncantTag(incant) {
 
 document.addEventListener("mousemove", function(e) {
     if(draggedIncant != null) {
-        draggedIncant.style.left = e.clientX + dragOffset[0] + "px";
-        draggedIncant.style.top = e.clientY + dragOffset[1] + "px";
+        draggedIncant.style.left = e.clientX - dragOffset[0] + "px";
+        draggedIncant.style.top = e.clientY - dragOffset[1] + "px";
     }
 });
 
