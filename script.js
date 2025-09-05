@@ -31,6 +31,7 @@ function setClusterList(data, container) {
 }
 
 let draggedIncant = null;
+let selectedIncant = null;
 let dragOffset = [];
 
 function createIncantTag(incant) {
@@ -50,6 +51,14 @@ function createIncantTag(incant) {
 
         document.body.style.userSelect = "none";
         this.style.pointerEvents = "none";
+    });
+
+    element.addEventListener("click", function(e) {
+        if(selectedIncant != null) {
+            selectedIncant.style.fontWeight = "";
+        }
+        selectedIncant = this;
+        selectedIncant.style.fontWeight = "bold";
     });
 
     return element;
