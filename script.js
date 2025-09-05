@@ -45,8 +45,8 @@ function createIncantTag(incant) {
         dragOffset = [e.clientX - bcr.left, e.clientY - bcr.top];
 
         this.style.position = "fixed";
-        this.style.left = dragOffset[0] + "px";
-        this.style.top = dragOffset[1] + "px";
+        this.style.left = e.clientX - dragOffset[0] + "px";
+        this.style.top = e.clientY - dragOffset[1] + "px";
 
         document.body.style.userSelect = "none";
         this.style.pointerEvents = "none";
