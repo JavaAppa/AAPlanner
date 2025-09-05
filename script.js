@@ -59,6 +59,7 @@ function createIncantTag(incant) {
         }
         selectedIncant = this;
         selectedIncant.style.fontWeight = "bold";
+        console.log("Test")
     });
 
     return element;
