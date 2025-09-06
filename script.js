@@ -8,7 +8,6 @@ function createClusterTag(a) {
 }
 
 function setClusterList(data, container) {
-    console.log(data);
     if(data.length == 0) {
         container.innerText = "N/A";
         return;
@@ -130,7 +129,6 @@ function arrangeIncantTo(x, elToArrange) {
             break;
         }
     }
-    console.log(t)
     if(!didSet) {
         id("spellContainer").appendChild(elToArrange);
     }  
