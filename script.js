@@ -212,6 +212,19 @@ window.addEventListener("load", function() {
     );
 });
 
+id("importSpell").addEventListener("click", function(){
+    let importVal = id("importedSpellContent").value.split(" ");
+    for(let i in importVal) {
+        if(incantTypes[importVal[i]] == null) {
+            alert("Error: Incant [" + importVal[i] + "] (Placement: " + i + ") not found! Make sure there's no typos in the imported data.");
+            return;
+        }
+    }
+    for(let i of importVal) {
+        id("spellContainer").appendChild(createIncantTag(i));
+    }
+});
+
 const clusterTypes = {
     entity: {"styleTag": "entity", "name": "Entity"},
     block: {"styleTag": "block", "name": "Block"},
