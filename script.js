@@ -728,6 +728,18 @@ const incantTypes = {
         description: "Plays a sound to an entity.",
         tags: ["illusion"]
     },
+    "BURIRO": {
+        arguments: ["item", "vector"],
+        returns: [],
+        description: "Conjure a particle from a page at a location.",
+        tags: ["illusion"]
+    },
+    "BURIROVER": {
+        arguments: ["scalar", "item", "vector"],
+        returns: [],
+        description: "Conjure a particle from a grimoire's page at a location.",
+        tags: ["illusion"]
+    },
     "IF": {
         arguments: ["list", "list", "boolean"],
         returns: ["list"],
@@ -889,5 +901,35 @@ const incantTypes = {
         returns: [],
         description: "Repair an item.",
         tags: ["item"]
+    },
+    "PALACOR": {
+        arguments: ["vector", "vector"],
+        returns: ["list"],
+        description: "Get all vectors between two positions in an area.",
+        tags: ["area"]
+    },
+    "FILACOR": {
+        arguments: ["vector", "vector"],
+        returns: ["list"],
+        description: "Get all vectors between two positions in a line.",
+        tags: ["area"]
+    },
+    "YINSOX": {
+        arguments: ["word"],
+        returns: [],
+        description: "Purge mark.",
+        tags: ["mark"]
+    },
+    "WISSOX": {
+        arguments: [["entity", "vector", "block", "word", "item", "rotation", "scalar"], "word"],
+        returns: [],
+        description: "Create a mark.",
+        tags: ["mark"]
+    },
+    "BURSOX": {
+        arguments: ["word"],
+        returns: ["any"],
+        description: "Get a mark from a word.",
+        tags: ["mark"]
     }
 };
