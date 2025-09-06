@@ -81,12 +81,12 @@ document.addEventListener("mouseup", function(e) {
             let bcr = el.getBoundingClientRect();
             let relMousePosition = e.clientX - bcr.left - (bcr.width / 2);
             if(relMousePosition < 0) {
-                e.target.before(draggedIncant);
+                el.before(draggedIncant);
                 didSet = true;
             }
         }
         if(!didSet) {
-            e.target.after(draggedIncant);
+            id("spellContainer").appendChild(draggedIncant);
         }
         
         draggedIncant.style.position = "";
