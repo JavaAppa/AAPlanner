@@ -931,5 +931,89 @@ const incantTypes = {
         returns: ["any"],
         description: "Get a mark from a word.",
         tags: ["mark"]
+    },
+    "SEMAYIQ": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict poison onto an entity.",
+        tags: ["alchemical"]
+    },
+    "MALBASCOR": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict levitation onto an entity.",
+        tags: ["alchemical"]
+    },
+    "REDESI": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict blindness onto an entity.",
+        tags: ["alchemical"]
+    },
+    "MALVARYIQ": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict hunger onto an entity.",
+        tags: ["alchemical"]
+    },
+    "MALVAR": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict slowness onto an entity.",
+        tags: ["alchemical"]
+    },
+    "YIXYIQ": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict withering onto an entity.",
+        tags: ["alchemical"]
+    },
+    "ABRACADABRA": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict nausea onto an entity.",
+        tags: ["alchemical"]
+    },
+    "HESAYIC": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict regeneration onto an entity.",
+        tags: ["alchemical"]
+    },
+    "MALBIE": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict jump boost onto an entity.",
+        tags: ["alchemical"]
+    },
+    "MALFIEVAR": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict slow falling onto an entity.",
+        tags: ["alchemical"]
+    },
+    "ESIEME": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict night vision onto an entity.",
+        tags: ["alchemical"]
+    },
+    "XABESI": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict invisiblity onto an entity.",
+        tags: ["alchemical"]
+    },
+    "MALVER": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict speed onto an entity.",
+        tags: ["alchemical"]
+    },
+    "YINILIC": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict haste onto an entity.",
+        tags: ["alchemical"]
     }
 };
