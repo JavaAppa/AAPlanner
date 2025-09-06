@@ -859,5 +859,35 @@ const incantTypes = {
         returns: ["scalar"],
         description: "Round a number up.",
         tags: ["number"]
+    },
+    "BURITE": {
+        arguments: ["scalar", ["entity", "block"]],
+        returns: ["item"],
+        description: "Get an item from an entity / block's inventory.",
+        tags: ["item"]
+    },
+    "BURFANITE": {
+        arguments: ["item"],
+        returns: ["list"],
+        description: "Get a spell from an item.",
+        tags: ["item"]
+    },
+    "MALITE": {
+        arguments: [["entity", "block"], ["entity", "block"], "scalar"],
+        returns: ["boolean"],
+        description: "Transfer item between two entities/blocks. NOTE: Do not mix up with XABITE, which swaps two items in the SAME entity/block's inventory.",
+        tags: ["item"]
+    },
+    "XABITE": {
+        arguments: ["scalar", "scalar", ["entity", "block"]],
+        returns: ["boolean"],
+        description: "Swap two items in an entity/block's inventory. NOTE: Do not mix up with MALITE, which transfers items between two DIFFERENT entities.",
+        tags: ["item"]
+    },
+    "HESITE": {
+        arguments: ["item"],
+        returns: [],
+        description: "Repair an item.",
+        tags: ["item"]
     }
 };
