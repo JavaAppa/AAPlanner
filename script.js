@@ -829,5 +829,35 @@ const incantTypes = {
         returns: ["vector"],
         description: "Round a vector.",
         tags: ["vector"]
+    },
+    "IRANIM": {
+        arguments: ["scalar"],
+        returns: ["scalar"],
+        description: "Get the absolute value of a number.",
+        tags: ["number"]
+    },
+    "IRONIM": {
+        arguments: ["scalar"],
+        returns: ["scalar"],
+        description: "Round a number.",
+        tags: ["number"]
+    },
+    "PAQANIM": {
+        arguments: [],
+        returns: ["scalar"],
+        description: "Get a random number from 0 to 1.",
+        tags: ["number"]
+    },
+    "IRONIMVAR": {
+        arguments: ["scalar"],
+        returns: ["scalar"],
+        description: "Round a number down.",
+        tags: ["number"]
+    },
+    "IRONIMVER": {
+        arguments: [],
+        returns: ["scalar"],
+        description: "Round a number up.",
+        tags: ["number"]
     }
 };
