@@ -34,6 +34,55 @@ let draggedIncant = null;
 let selectedIncant = null;
 let dragOffset = [];
 
+function dragIncantMouseDown(self, clientX, clientY) {
+    if(selectedIncant == null || selectedIncant != self) { return; }
+    draggedIncant = self;
+    let bcr = self.getBoundingClientRect();
+    dragOffset = [clientX - bcr.left, clientY - bcr.top];
+
+    self.style.position = "fixed";
+    self.style.left = bcr.left + "px";
+    self.style.top = bcr.top + "px";
+    
+    self.classList.add("ignoreInArrangement");
+    self.style.zIndex = "2";
+
+    document.body.style.userSelect = "none";
+    self.style.pointerEvents = "none";
+
+    let placeholderEl = document.createElement("div");
+    placeholderEl.id = "placeholderIncant";
+    placeholderEl.style.width = bcr.width + "px";
+    placeholderEl.innerHTML = "&nbsp;";
+    placeholderEl.classList.add("spellIncant", "ignoreInArrangement");
+    self.before(placeholderEl);
+}
+
+function dragIncantMouseMove(clientX, clientY) {
+    if(draggedIncant != null) {
+        draggedIncant.style.left = clientX - dragOffset[0] + "px";
+        draggedIncant.style.top = clientY - dragOffset[1] + "px";
+        
+        if(id("placeholderIncant") != null) {
+            arrangeIncantTo(clientX, id("placeholderIncant"));
+        }
+    }
+}
+
+function dragIncantMouseUp(clientX) {
+    if(draggedIncant != null) {
+        arrangeIncantTo(clientX, draggedIncant);
+        
+        draggedIncant.style.position = "";
+        draggedIncant.style.pointerEvents = "";
+        draggedIncant.style.zIndex = "";
+        draggedIncant.classList.remove("ignoreInArrangement");
+        draggedIncant = null;
+        id("placeholderIncant").parentNode.removeChild(id("placeholderIncant"));
+    }
+    document.body.style.userSelect = "";
+}
+
 function createIncantTag(incant) {
     let element = document.createElement("div");
     element.classList.add("spellIncant");
@@ -41,17 +90,11 @@ function createIncantTag(incant) {
     element.innerText = incant.toUpperCase();
 
     element.addEventListener("mousedown", function(e) {
-        if(selectedIncant == null || selectedIncant != this) { return; }
-        draggedIncant = this;
-        let bcr = this.getBoundingClientRect();
-        dragOffset = [e.clientX - bcr.left, e.clientY - bcr.top];
+        dragIncantMouseDown(this, e.clientX, e.clientY);
+    });
 
-        this.style.position = "fixed";
-        this.style.left = bcr.left + "px";
-        this.style.top = bcr.top + "px";
-
-        document.body.style.userSelect = "none";
-        this.style.pointerEvents = "none";
+    element.addEventListener("touchstart", function(e) {
+        dragIncantMouseDown(this, e.touches[0].clientX, e.touches[0].clientY);
     });
 
     element.addEventListener("click", function(e) {
@@ -60,40 +103,45 @@ function createIncantTag(incant) {
         }
         selectedIncant = this;
         selectedIncant.style.fontWeight = "bold";
-        console.log("Test")
     });
 
     return element;
 }
 
 document.addEventListener("mousemove", function(e) {
-    if(draggedIncant != null) {
-        draggedIncant.style.left = e.clientX - dragOffset[0] + "px";
-        draggedIncant.style.top = e.clientY - dragOffset[1] + "px";
-    }
+    dragIncantMouseMove(e.clientX, e.clientY);
+});
+document.addEventListener("touchmove", function(e) {
+    dragIncantMouseMove(e.touches[0].clientX, e.touches[0].clientY);
 });
 
-document.addEventListener("mouseup", function(e) {
-    if(draggedIncant != null) {
-        let children = id("spellContainer").children;
-        let didSet = false;
-        for(let el of children) {
-            let bcr = el.getBoundingClientRect();
-            let relMousePosition = e.clientX - bcr.left - (bcr.width / 2);
-            if(relMousePosition < 0) {
-                el.before(draggedIncant);
-                didSet = true;
-            }
+function arrangeIncantTo(x, elToArrange) {
+    let children = id("spellContainer").children;
+    let didSet = false;
+    let t = "";
+    for(let el of children) {
+        if(el == elToArrange || el.classList.contains("ignoreInArrangement")) { continue; }
+        let bcr = el.getBoundingClientRect();
+        let relMousePosition = x - bcr.left - (bcr.width / 2);
+        t += relMousePosition + " ";
+        if(relMousePosition < 0) {
+            el.before(elToArrange);
+            didSet = true;
+            break;
         }
-        if(!didSet) {
-            id("spellContainer").appendChild(draggedIncant);
-        }
-        
-        draggedIncant.style.position = "";
-        draggedIncant.style.pointerEvents = "";
-        draggedIncant = null;
     }
-    document.body.style.userSelect = "";
+    console.log(t)
+    if(!didSet) {
+        id("spellContainer").appendChild(elToArrange);
+    }  
+}
+
+document.addEventListener("mouseup", function(e) {
+    dragIncantMouseUp(e.clientX);
+});
+
+document.addEventListener("touchend", function(e) {
+    dragIncantMouseUp(e.changedTouches[0].clientX);
 });
 
 function updateIncantSelectorUI(incant) {

@@ -42,6 +42,11 @@ h1, h2, h3 {
 	border-radius: 5px;
 }
 
+#placeholderIncant {
+	opacity: 0.5;
+	padding:0;
+}
+
 .sectionContainer {
 	margin-top:10px;
 }
