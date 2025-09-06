@@ -192,6 +192,10 @@ window.addEventListener("load", function() {
         [id("addIncantTitle"),  id("editIncantTitle")],
         [id("addIncantWindow"), id("editIncantWindow")]
     );
+    addTabEvListeners(
+        [id("exportSpellTitle"),     id("importSpellTitle")],
+        [id("exportSpellContainer"), id("importSpellContainer")]
+    );
 });
 
 const clusterTypes = {
