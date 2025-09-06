@@ -55,14 +55,14 @@ select, option {
 	color: #222;
 }
 
-#newIncantSubmit {
+button {
 	background-color: #8f418f;
     padding: 10px;
     border-radius: 20px;
     border: 5px solid #b06ab0;
 }
 
-#newIncantSubmit:hover {
+button:hover {
     background-color: #b06ab0;
 }
 
@@ -187,6 +187,6 @@ select, option {
 	display: none;
 }
 
-#exportedSpellContent {
+#exportedSpellContent, #importedSpellContent {
 	color: black;
 }
