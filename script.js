@@ -41,7 +41,7 @@ function createIncantTag(incant) {
     element.innerText = incant.toUpperCase();
 
     element.addEventListener("mousedown", function(e) {
-        if(selectedIncant == null) { return; }
+        if(selectedIncant == null || selectedIncant != this) { return; }
         draggedIncant = this;
         let bcr = this.getBoundingClientRect();
         dragOffset = [e.clientX - bcr.left, e.clientY - bcr.top];
@@ -74,7 +74,7 @@ document.addEventListener("mousemove", function(e) {
 });
 
 document.addEventListener("mouseup", function(e) {
-    if(e.target.parentNode == id("spellContainer")) {
+    if(e.target.parentNode == id("spellContainer") && draggedIncant != null) {
         let bcr = e.target.getBoundingClientRect();
         let relMousePosition = e.clientX - bcr.left - (bcr.width / 2);
         if(relMousePosition < 0) {
@@ -82,9 +82,6 @@ document.addEventListener("mouseup", function(e) {
         } else {
             e.target.after(draggedIncant);
         }
-    }
-
-    if(draggedIncant != null) {
         draggedIncant.style.position = "";
         draggedIncant.style.pointerEvents = "";
         draggedIncant = null;
