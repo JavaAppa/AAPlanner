@@ -1015,5 +1015,137 @@ const incantTypes = {
         returns: [],
         description: "Inflict haste onto an entity.",
         tags: ["alchemical"]
+    },
+    "BISCUL": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict fire resistance onto an entity.",
+        tags: ["alchemical"]
+    },
+    "QARCUL": {
+        arguments: ["scalar", "scalar", "boolean", "entity"],
+        returns: [],
+        description: "Inflict water breathing onto an entity.",
+        tags: ["alchemical"]
+    },
+    "FUS": {
+        arguments: [["vector", "entity"]],
+        returns: [],
+        description: "Conjure a persistent ball of light at the vector given OR flashbang a player.",
+        tags: ["elemental"]
+    },
+    "BIS": {
+        arguments: [["vector", "entity"]],
+        returns: [],
+        description: "Start a fire, melt a frozen block, force a creeper to explode.",
+        tags: ["elemental"]
+    },
+    "MALBIZON": {
+        arguments: ["vector", "vector"],
+        returns: ["entity"],
+        description: "\"I CAST FIREBALL!\" - Last words of a mage who casted fireball in an enclosed space. Summon a moving fire charge at a vector moving in a direction. Return the fireball as a cluster.",
+        tags: ["elemental"]
+    },
+    "MALQARZON": {
+        arguments: ["vector", "vector"],
+        returns: ["entity"],
+        description: "Summon a snowball at a position moving in a direction.",
+        tags: ["elemental"]
+    },
+    "MALFICZON": {
+        arguments: ["vector", "vector"],
+        returns: ["entity"],
+        description: "Summon a wind charge at a position moving in a direction.",
+        tags: ["elemental"]
+    },
+    "QAR": {
+        arguments: [["Vector", "Entity"]],
+        returns: ["entity"],
+        description: "Conjure water at a location, extinguish flames, stop a creeper from exploding.",
+        tags: ["elemental"]
+    },
+    "QARHES": {
+        arguments: ["Entity"],
+        returns: ["entity"],
+        description: "Stop a creeper from exploding. Seemingly the same as QAR.",
+        tags: ["elemental"]
+    },
+    "QARILIC": {
+        arguments: [["vector", "entity"]],
+        returns: [],
+        description: "Freeze a block, inflict ice damage on an entity.",
+        tags: ["elemental"]
+    },
+    "SINBASHUS": {
+        arguments: ["vector"],
+        returns: [],
+        description: "Summon a lightning bolt.",
+        tags: ["elemental"]
+    },
+    "SINBASHUS": {
+        arguments: ["vector", "entity"],
+        returns: [],
+        description: "Summon a lightning line.",
+        tags: ["elemental"]
+    },
+    "BISILIC": {
+        arguments: ["boolean", "boolean", "scalar", "vector"],
+        returns: [],
+        description: "I am become death, destroyer of worlds. (summon explosion)",
+        tags: ["elemental"]
+    },
+    "GIMALIS": {
+        arguments: ["list", "vector", "vector"],
+        returns: ["entity"],
+        description: "Conjure a projectile.",
+        tags: ["energetic"]
+    },
+    "MALIS": {
+        arguments: ["list", "vector", "vector"],
+        returns: ["entity"],
+        description: "Conjure a projectile that's affected by gravity.",
+        tags: ["energetic"]
+    },
+    "MAL": {
+        arguments: ["vector", ["entity", "vector"]],
+        returns: [],
+        description: "Punt an entity or a block at a location.",
+        tags: ["kinetic"]
+    },
+    "MALJIE": {
+        arguments: ["vector", "scalar", "scalar", "entity"],
+        returns: [],
+        description: "Apply knockback to an entity.",
+        tags: ["kinetic"]
+    },
+    "MALFAN": {
+        arguments: ["scalar", "entity"],
+        returns: [],
+        description: "Teleport an entity forward a certain distance.",
+        tags: ["spatial"]
+    },
+    "MALFANEME": {
+        arguments: ["vector", "entity"],
+        returns: [],
+        description: "Teleport an entity to a location.",
+        tags: ["spatial"]
+    },
+    "HUSCOR": {
+        arguments: ["vector"],
+        returns: [],
+        description: "Break a block.",
+        tags: ["blockwork"]
+    },
+    "SINCOR": {
+        arguments: ["vector", "item"],
+        returns: [],
+        description: "Place a block from an item.",
+        tags: ["blockwork"]
+    },
+    "MALCOR": {
+        arguments: ["vector", "vector"],
+        returns: [],
+        description: "Swap two blocks.",
+        tags: ["blockwork"]
     }
 };
