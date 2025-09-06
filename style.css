@@ -186,3 +186,7 @@ select, option {
 .hidden {
 	display: none;
 }
+
+#exportedSpellContent {
+	color: black;
+}
