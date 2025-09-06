@@ -33,6 +33,17 @@ let draggedIncant = null;
 let selectedIncant = null;
 let dragOffset = [];
 
+function updateExportSpell() {
+    let text = id("exportedSpellContent");
+    let children = id("spellContainer").children;
+    text.value = "";
+    let uncomp = [];
+    for(let i of children) {
+        uncomp.push(i.innerText);
+    }
+    text.value = uncomp.join(" ");
+}
+
 function dragIncantMouseDown(self, clientX, clientY) {
     if(selectedIncant == null || selectedIncant != self) { return; }
     draggedIncant = self;
@@ -78,6 +89,8 @@ function dragIncantMouseUp(clientX) {
         draggedIncant.classList.remove("ignoreInArrangement");
         draggedIncant = null;
         id("placeholderIncant").parentNode.removeChild(id("placeholderIncant"));
+
+        updateExportSpell();
     }
     document.body.style.userSelect = "";
 }
@@ -186,6 +199,7 @@ window.addEventListener("load", function() {
             id("spellContainer").appendChild(createIncantTag(id("newIncantSelector").value));
         }
         id("newIncantSelector").value = "0";
+        updateExportSpell();
     });
 
     addTabEvListeners(
