@@ -74,14 +74,21 @@ document.addEventListener("mousemove", function(e) {
 });
 
 document.addEventListener("mouseup", function(e) {
-    if(e.target.parentNode == id("spellContainer") && draggedIncant != null) {
-        let bcr = e.target.getBoundingClientRect();
-        let relMousePosition = e.clientX - bcr.left - (bcr.width / 2);
-        if(relMousePosition < 0) {
-            e.target.before(draggedIncant);
-        } else {
+    if(draggedIncant != null) {
+        let children = id("spellContainer").children;
+        let didSet = false;
+        for(let el of children) {
+            let bcr = el.getBoundingClientRect();
+            let relMousePosition = e.clientX - bcr.left - (bcr.width / 2);
+            if(relMousePosition < 0) {
+                e.target.before(draggedIncant);
+                didSet = true;
+            }
+        }
+        if(!didSet) {
             e.target.after(draggedIncant);
         }
+        
         draggedIncant.style.position = "";
         draggedIncant.style.pointerEvents = "";
         draggedIncant = null;
