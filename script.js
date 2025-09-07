@@ -1,5 +1,27 @@
 function id(id) { return document.getElementById(id); }
 
+function toggleSelectIncant(incant) {
+    if(incant == null) {
+        id("noIncantSelectedEditText").classList.remove("hidden");
+        id("incantSelectedEditContent").classList.add("hidden");
+    } else {
+        id("noIncantSelectedEditText").classList.add("hidden");
+        id("incantSelectedEditContent").classList.remove("hidden");
+        if(selectedIncant) {
+            selectedIncant.style.fontWeight = "";
+        }
+        incant.style.fontWeight = "bold";
+
+        updateIncantSelectorUI(incant.dataset.val, {
+            title: id("selectedIncantTitle"),
+            args: id("selectedIncantArgumentList"),
+            returns: id("selectedIncantReturnList"),
+            desc: id("selectedIncantDescription")
+        });
+    }
+    selectedIncant = incant;
+}
+
 function createClusterTag(a) {
     let arg = document.createElement("span");
     arg.classList.add("cluster", clusterTypes[a].styleTag);
@@ -100,6 +122,7 @@ function createIncantTag(incant) {
     element.classList.add("spellIncant");
     element.classList.add(...incantTypes[incant].tags);
     element.innerText = incant.toUpperCase();
+    element.dataset.val = incant;
 
     element.addEventListener("mousedown", function(e) {
         dragIncantMouseDown(this, e.clientX, e.clientY);
@@ -110,11 +133,7 @@ function createIncantTag(incant) {
     });
 
     element.addEventListener("click", function(e) {
-        if(selectedIncant != null) {
-            selectedIncant.style.fontWeight = "";
-        }
-        selectedIncant = this;
-        selectedIncant.style.fontWeight = "bold";
+        toggleSelectIncant(this);
     });
 
     return element;
@@ -155,18 +174,26 @@ document.addEventListener("touchend", function(e) {
     dragIncantMouseUp(e.changedTouches[0].clientX);
 });
 
-function updateIncantSelectorUI(incant) {
+function updateIncantSelectorUI(incant, elements) {
     let incData = incantTypes[incant];
     if(incData != null) {
-        id("editIncantSelectedTitle").innerText = incant.toUpperCase();
+        if(elements.title) {
+            elements.title.innerText = incant.toUpperCase();
+        }
 
-        id("newIncantArgumentList").innerHTML = "";
-        setClusterList(incData.arguments, id("newIncantArgumentList"));
+        if(elements.args) {
+            elements.args.innerHTML = "";
+            setClusterList(incData.arguments, elements.args);
+        }
 
-        id("newIncantReturnList").innerHTML = "";
-        setClusterList(incData.returns, id("newIncantReturnList"));
+        if(elements.returns) {
+            elements.returns.innerHTML = "";
+            setClusterList(incData.returns, elements.returns);
+        }
 
-        id("newIncantDescription").innerText = incData.description;
+        if(elements.desc) {
+            elements.desc.innerText = incData.description;
+        }
     }
 }
 
@@ -183,7 +210,12 @@ function addTabEvListeners(tabs, windows) {
 
 id("newIncantSelector").addEventListener("change", function() {
     let v = this.value;
-    updateIncantSelectorUI(v);
+    updateIncantSelectorUI(v, {
+        title: id("editIncantSelectedTitle"),
+        args: id("newIncantArgumentList"),
+        returns: id("newIncantReturnList"),
+        desc: id("newIncantDescription")
+    });
 });
 
 window.addEventListener("load", function() {
@@ -222,6 +254,13 @@ id("importSpell").addEventListener("click", function(){
     }
     for(let i of importVal) {
         id("spellContainer").appendChild(createIncantTag(i));
+    }
+});
+
+id("deleteIncant").addEventListener("click", function() {
+    if(selectedIncant) {
+        id("spellContainer").removeChild(selectedIncant);
+        updateExportSpell();
     }
 });
 

@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<h1 id="pageTitle">Java's One Stop AA Spell Planner! (V0.2)</h1>
+		<h1 id="pageTitle">Java's One Stop AA Spell Planner! (V0.8)</h1>
 		<p>
 			For <i>obscenely</i> complicated spells that take up more spell pages than one has braincells.
 			<br><br>
@@ -34,7 +34,7 @@
 					</select>
 				</label>
 				<br><br>
-				<b>INCANT NAME: <div id="editIncantSelectedTitle" class="inlineCluster spellIncant">ETE</div></b>
+				<b>Incant Name: <div id="editIncantSelectedTitle" class="inlineCluster spellIncant">ETE</div></b>
 				<p>Arguments: <span id="newIncantArgumentList"><span class="cluster vector">Vector</span>, <span class="cluster entity">Entity</span>, <span class="cluster scalar">Scalar</span></span></p>
 				<p>Returns: <span id="newIncantReturnList"><span class="cluster null">Null</span></span></p>
 				<p id="newIncantDescription"></p>
@@ -43,7 +43,11 @@
 			<div id="editIncantWindow" class="sectionContent hidden">
 				<span id="noIncantSelectedEditText">Select an incant in the Incant List to edit it.</span>
 				<div id="incantSelectedEditContent" class="hidden">
-					Incant selected! Display edit controls here.
+					<p>Selected Incant: <div id="selectedIncantTitle" class="inlineCluster spellIncant"></div></p>
+					<p>Arguments: <span id="selectedIncantArgumentList"></span></p>
+					<p>Returns: <span id="selectedIncantReturnList"></span></p>
+					<p id="selectedIncantDescription"></p>
+					<button id="deleteIncant">Delete</button>
 				</div>
 			</div>
 		</div>
