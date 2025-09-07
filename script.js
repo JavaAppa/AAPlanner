@@ -261,6 +261,7 @@ id("deleteIncant").addEventListener("click", function() {
     if(selectedIncant) {
         id("spellContainer").removeChild(selectedIncant);
         updateExportSpell();
+        toggleSelectIncant(null);
     }
 });
 
