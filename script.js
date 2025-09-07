@@ -273,6 +273,7 @@ id("deleteIncant").addEventListener("click", function() {
 
 id("addConstSubmit").addEventListener("click", function() {
     createIncantTag(null, id("addConstValue").value);
+    updateExportSpell();
 });
 
 const clusterTypes = {
