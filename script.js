@@ -117,12 +117,18 @@ function dragIncantMouseUp(clientX) {
     document.body.style.userSelect = "";
 }
 
-function createIncantTag(incant) {
+function createIncantTag(incant, constValue) {
     let element = document.createElement("div");
     element.classList.add("spellIncant");
-    element.classList.add(...incantTypes[incant].tags);
-    element.innerText = incant.toUpperCase();
-    element.dataset.val = incant;
+    if(constValue == null) {
+        element.classList.add(...incantTypes[incant].tags);
+        element.dataset.val = incant;
+        element.innerText = incant.toUpperCase();
+    } else {
+        element.dataset.val = incant;
+        element.dataset.constant = true;
+        element.innerText = constValue;
+    }
 
     element.addEventListener("mousedown", function(e) {
         dragIncantMouseDown(this, e.clientX, e.clientY);
@@ -235,8 +241,8 @@ window.addEventListener("load", function() {
     });
 
     addTabEvListeners(
-        [id("addIncantTitle"),  id("editIncantTitle")],
-        [id("addIncantWindow"), id("editIncantWindow")]
+        [id("addIncantTitle"),  id("addConstTitle"),  id("editIncantTitle")],
+        [id("addIncantWindow"), id("addConstWindow"), id("editIncantWindow")]
     );
     addTabEvListeners(
         [id("exportSpellTitle"),     id("importSpellTitle")],
@@ -263,6 +269,10 @@ id("deleteIncant").addEventListener("click", function() {
         updateExportSpell();
         toggleSelectIncant(null);
     }
+});
+
+id("addConstSubmit").addEventListener("click", function() {
+    createIncantTag(null, id("addConstValue").value);
 });
 
 const clusterTypes = {
