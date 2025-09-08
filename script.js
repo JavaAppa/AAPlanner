@@ -94,6 +94,7 @@ function dragIncantMouseDown(self, clientX, clientY) {
     markerEl.innerHTML = "&nbsp;";
     markerEl.classList.add("spellIncant", "ignoreInArrangement");
     self.before(markerEl);
+    self.before(placeholderEl);
 }
 
 function dragIncantMouseMove(clientX, clientY) {
