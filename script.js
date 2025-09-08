@@ -272,7 +272,7 @@ id("deleteIncant").addEventListener("click", function() {
 });
 
 id("addConstSubmit").addEventListener("click", function() {
-    createIncantTag(null, id("addConstValue").value);
+    id("spellContainer").appendChild(createIncantTag(null, id("addConstValue").value));
     updateExportSpell();
 });
 
