@@ -88,13 +88,11 @@ function dragIncantMouseDown(self, clientX, clientY) {
     placeholderEl.innerHTML = "&nbsp;";
     placeholderEl.classList.add("spellIncant", "ignoreInArrangement");
     self.before(placeholderEl);
+    
     let markerEl = document.createElement("div");
     markerEl.id = "positionMarker";
-    markerEl.style.width = bcr.width + "px";
-    markerEl.innerHTML = "&nbsp;";
     markerEl.classList.add("spellIncant", "ignoreInArrangement");
     self.before(markerEl);
-    self.before(placeholderEl);
 }
 
 function dragIncantMouseMove(clientX, clientY) {
