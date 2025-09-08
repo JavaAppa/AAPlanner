@@ -276,7 +276,7 @@ id("addConstSubmit").addEventListener("click", function() {
     if(!isNaN(val)) {
         val = "/" + val + "/";
     }
-    id("spellContainer").appendChild(createIncantTag(null, id("addConstValue").value));
+    id("spellContainer").appendChild(createIncantTag(null, val));
     updateExportSpell();
 });
 
