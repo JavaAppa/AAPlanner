@@ -152,7 +152,14 @@ document.addEventListener("touchmove", function(e) {
     dragIncantMouseMove(e.touches[0].clientX, e.touches[0].clientY);
 });
 
-function arrangeIncantTo(x, y, elToArrange) {
+/** https://stackoverflow.com/questions/5254838/calculating-distance-between-a-point-and-a-rectangular-box-nearest-point */
+function distanceFromPointToRect(rect, p) {
+  var dx = Math.max(rect.min.x - p.x, 0, p.x - rect.max.x);
+  var dy = Math.max(rect.min.y - p.y, 0, p.y - rect.max.y);
+  return Math.sqrt(dx*dx + dy*dy);
+}
+
+function arrangeIncantTo(xPos, yPos, elToArrange) {
     let children = id("spellContainer").children;
     
     /** Distance to center, element. */
@@ -160,9 +167,22 @@ function arrangeIncantTo(x, y, elToArrange) {
     for(let el of children) {
         if(el == elToArrange || el.classList.contains("ignoreInArrangement")) { continue; }
         let bcr = el.getBoundingClientRect();
-        let relMousePositionX = x - bcr.left - (bcr.width / 2);
-        let relMousePositionY = y - bcr.top - (bcr.height / 2);
-        let dist = Math.sqrt(Math.pow(relMousePositionX, 2) + Math.pow(relMousePositionY, 2));
+        let relMousePositionX = xPos - bcr.left - (bcr.width / 2);
+        
+        let dist = distanceFromPointToRect(
+            {
+                max: {
+                    x: bcr.right,
+                    y: bcr.bottom
+                },
+                min: {
+                    x: bcr.left,
+                    y: bcr.top
+                }
+            },
+            {x: xPos, y: yPos}
+        );
+        
         if(dist < closest[0]) {
             closest[0] = dist;
             closest[1] = relMousePositionX;
