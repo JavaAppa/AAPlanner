@@ -167,10 +167,14 @@ button:hover {
 
 .sectionTitleContainer {
 	display:flex;
+	padding-right: 15px;
 }
 
 .sectionTitleContainer .sectionTitle {
-	flex: 0 0 auto;
+	flex: 0 1 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .sectionTitleContainer .sectionTitle:not(.sectionTitleSelected) {
 	background-color: #302834;
