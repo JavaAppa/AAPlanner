@@ -190,3 +190,13 @@ button:hover {
 #exportedSpellContent, #importedSpellContent, input, textarea {
 	color: black;
 }
+
+#positionMarker {
+	margin: -4.5px;
+    width: 4px;
+    position: relative;
+    z-index: 1;
+    background-color: green;
+    padding: 0px;
+    display: none;
+}

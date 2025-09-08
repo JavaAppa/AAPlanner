@@ -88,12 +88,22 @@ function dragIncantMouseDown(self, clientX, clientY) {
     placeholderEl.innerHTML = "&nbsp;";
     placeholderEl.classList.add("spellIncant", "ignoreInArrangement");
     self.before(placeholderEl);
+    let markerEl = document.createElement("div");
+    markerEl.id = "positionMarker";
+    markerEl.style.width = bcr.width + "px";
+    markerEl.innerHTML = "&nbsp;";
+    markerEl.classList.add("spellIncant", "ignoreInArrangement");
+    self.before(markerEl);
 }
 
 function dragIncantMouseMove(clientX, clientY) {
     if(draggedIncant != null) {
         draggedIncant.style.left = clientX - dragOffset[0] + "px";
         draggedIncant.style.top = clientY - dragOffset[1] + "px";
+        
+        if(id("positionMarker") != null) {
+            arrangeIncantTo(clientX, clientY, id("positionMarker"));
+        }
     }
 }
 
@@ -107,6 +117,7 @@ function dragIncantMouseUp(clientX, clientY) {
         draggedIncant.classList.remove("ignoreInArrangement");
         draggedIncant = null;
         id("placeholderIncant").parentNode.removeChild(id("placeholderIncant"));
+        id("positionMarker").parentNode.removeChild(id("positionMarker"));
 
         updateExportSpell();
     }
