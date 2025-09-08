@@ -187,6 +187,6 @@ button:hover {
 	display: none;
 }
 
-#exportedSpellContent, #importedSpellContent {
+#exportedSpellContent, #importedSpellContent, input, textarea {
 	color: black;
 }
