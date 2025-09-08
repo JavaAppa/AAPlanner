@@ -96,14 +96,14 @@ function dragIncantMouseMove(clientX, clientY) {
         draggedIncant.style.top = clientY - dragOffset[1] + "px";
         
         if(id("placeholderIncant") != null) {
-            arrangeIncantTo(clientX, id("placeholderIncant"));
+            arrangeIncantTo(clientX, clientY, id("placeholderIncant"));
         }
     }
 }
 
-function dragIncantMouseUp(clientX) {
+function dragIncantMouseUp(clientX, clientY) {
     if(draggedIncant != null) {
-        arrangeIncantTo(clientX, draggedIncant);
+        arrangeIncantTo(clientX, clientY, draggedIncant);
         
         draggedIncant.style.position = "";
         draggedIncant.style.pointerEvents = "";
@@ -152,32 +152,39 @@ document.addEventListener("touchmove", function(e) {
     dragIncantMouseMove(e.touches[0].clientX, e.touches[0].clientY);
 });
 
-function arrangeIncantTo(x, elToArrange) {
+function arrangeIncantTo(x, y, elToArrange) {
     let children = id("spellContainer").children;
-    let didSet = false;
-    let t = "";
+    
+    /** Distance to center, element. */
+    let closest = [99999, 0, null];
     for(let el of children) {
         if(el == elToArrange || el.classList.contains("ignoreInArrangement")) { continue; }
         let bcr = el.getBoundingClientRect();
-        let relMousePosition = x - bcr.left - (bcr.width / 2);
-        t += relMousePosition + " ";
-        if(relMousePosition < 0) {
-            el.before(elToArrange);
-            didSet = true;
-            break;
+        let relMousePositionX = x - bcr.left - (bcr.width / 2);
+        let relMousePositionY = y - bcr.top - (bcr.height / 2);
+        let dist = Math.sqrt(Math.pow(relMousePositionX, 2) + Math.pow(relMousePositionY, 2));
+        if(dist < closest[0]) {
+            closest[0] = dist;
+            closest[1] = relMousePositionX;
+            closest[2] = el;
         }
     }
-    if(!didSet) {
-        id("spellContainer").appendChild(elToArrange);
-    }  
+    
+    if(closest[2] != null) {
+        if(closest[1] < 0) {
+            closest[2].before(elToArrange);
+        } else {
+            closest[2].after(elToArrange);
+        }
+    }
 }
 
 document.addEventListener("mouseup", function(e) {
-    dragIncantMouseUp(e.clientX);
+    dragIncantMouseUp(e.clientX, e.clientY);
 });
 
 document.addEventListener("touchend", function(e) {
-    dragIncantMouseUp(e.changedTouches[0].clientX);
+    dragIncantMouseUp(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
 });
 
 function updateIncantSelectorUI(incant, elements) {
