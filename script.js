@@ -94,10 +94,6 @@ function dragIncantMouseMove(clientX, clientY) {
     if(draggedIncant != null) {
         draggedIncant.style.left = clientX - dragOffset[0] + "px";
         draggedIncant.style.top = clientY - dragOffset[1] + "px";
-        
-        if(id("placeholderIncant") != null) {
-            arrangeIncantTo(clientX, clientY, id("placeholderIncant"));
-        }
     }
 }
 
