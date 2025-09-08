@@ -88,7 +88,7 @@ function dragIncantMouseDown(self, clientX, clientY) {
     placeholderEl.innerHTML = "&nbsp;";
     placeholderEl.classList.add("spellIncant", "ignoreInArrangement");
     self.before(placeholderEl);
-    
+
     let markerEl = document.createElement("div");
     markerEl.id = "positionMarker";
     markerEl.classList.add("spellIncant", "ignoreInArrangement");
@@ -287,12 +287,18 @@ id("importSpell").addEventListener("click", function(){
     let importVal = id("importedSpellContent").value.split(" ");
     for(let i in importVal) {
         if(incantTypes[importVal[i]] == null) {
-            alert("Error: Incant [" + importVal[i] + "] (Placement: " + i + ") not found! Make sure there's no typos in the imported data.");
-            return;
+            if(isNaN(importVal[i] && (importVal.slice(0, 1) != "/" || importVal.slice(-1) != "/"))) {
+                alert("Error: Incant [" + importVal[i] + "] (Placement: " + i + ") not found! Make sure there's no typos in the imported data.");
+                return;
+            }
         }
     }
     for(let i of importVal) {
-        id("spellContainer").appendChild(createIncantTag(i));
+        if(incantTypes[i] != null) {
+            id("spellContainer").appendChild(createIncantTag(i));
+        } else {
+            id("spellContainer").appendChild(createIncantTag(null, i));
+        }
     }
 });
 
