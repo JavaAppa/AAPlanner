@@ -272,6 +272,10 @@ id("deleteIncant").addEventListener("click", function() {
 });
 
 id("addConstSubmit").addEventListener("click", function() {
+    let val = id("addConstValue").value);
+    if(!isNaN(val)) {
+        val = "/" + val + "/";
+    }
     id("spellContainer").appendChild(createIncantTag(null, id("addConstValue").value));
     updateExportSpell();
 });
