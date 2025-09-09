@@ -4,20 +4,33 @@ function toggleSelectIncant(incant) {
     if(incant == null) {
         id("noIncantSelectedEditText").classList.remove("hidden");
         id("incantSelectedEditContent").classList.add("hidden");
+        id("constantSelectedEditContent").classList.add("hidden");
     } else {
         id("noIncantSelectedEditText").classList.add("hidden");
-        id("incantSelectedEditContent").classList.remove("hidden");
         if(selectedIncant) {
             selectedIncant.style.fontWeight = "";
+            if(selectedIncant.dataset.constant == "true") {
+                id("constantSelectedEditContent").classList.remove("hidden");
+                id("incantSelectedEditContent").classList.add("hidden");
+
+                let constantText = selectedIncant.dataset.val;
+                if(constantText.slice(0, 1) == "/") {
+                    constantText = constant.slice(1, -1);
+                }
+                id("selectedConstantContent").value = constantText;
+            } else {
+                id("incantSelectedEditContent").classList.remove("hidden");
+                id("constantSelectedEditContent").classList.add("hidden");
+
+                updateIncantSelectorUI(incant.dataset.val, {
+                    title: id("selectedIncantTitle"),
+                    args: id("selectedIncantArgumentList"),
+                    returns: id("selectedIncantReturnList"),
+                    desc: id("selectedIncantDescription")
+                });
+            }
         }
         incant.style.fontWeight = "bold";
-
-        updateIncantSelectorUI(incant.dataset.val, {
-            title: id("selectedIncantTitle"),
-            args: id("selectedIncantArgumentList"),
-            returns: id("selectedIncantReturnList"),
-            desc: id("selectedIncantDescription")
-        });
     }
     selectedIncant = incant;
 }
@@ -126,12 +139,11 @@ function dragIncantMouseUp(clientX, clientY) {
 function createIncantTag(incant, constValue) {
     let element = document.createElement("div");
     element.classList.add("spellIncant");
+    element.dataset.val = incant;
     if(constValue == null) {
         element.classList.add(...incantTypes[incant].tags);
-        element.dataset.val = incant;
         element.innerText = incant.toUpperCase();
     } else {
-        element.dataset.val = incant;
         element.dataset.constant = true;
         element.innerText = constValue;
     }
@@ -310,6 +322,26 @@ id("deleteIncant").addEventListener("click", function() {
     }
 });
 
+id("deleteConstant").addEventListener("click", function() {
+    if(selectedIncant) {
+        id("spellContainer").removeChild(selectedIncant);
+        updateExportSpell();
+        toggleSelectIncant(null);
+    }
+});
+
+id("updateConstant").addEventListener("click", function() {
+    if(selectedIncant) {
+        let val = id("selectedConstantContent").value;
+        if(isNaN(val)) {
+            val = "/" + val + "/";
+        }
+        selectedIncant.innerText = val;
+        selectedIncant.dataset.val = val;
+        updateExportSpell();
+    }
+});
+
 id("addConstSubmit").addEventListener("click", function() {
     let val = id("addConstValue").value;
     if(isNaN(val)) {
@@ -317,6 +349,7 @@ id("addConstSubmit").addEventListener("click", function() {
     }
     id("spellContainer").appendChild(createIncantTag(null, val));
     updateExportSpell();
+    id("addConstValue").value = "";
 });
 
 const clusterTypes = {

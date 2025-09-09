@@ -47,13 +47,19 @@
 				<button id="addConstSubmit">Submit</button>
 			</div>
 			<div id="editIncantWindow" class="sectionContent hidden">
-				<span id="noIncantSelectedEditText">Select an incant in the Incant List to edit it.</span>
+				<span id="noIncantSelectedEditText">Select an incant or constant in the Incant List to edit it.</span>
 				<div id="incantSelectedEditContent" class="hidden">
 					<b>Selected Incant: <div id="selectedIncantTitle" class="inlineCluster spellIncant"></div></b>
 					<p>Arguments: <span id="selectedIncantArgumentList"></span></p>
 					<p>Returns: <span id="selectedIncantReturnList"></span></p>
 					<p id="selectedIncantDescription"></p>
 					<button id="deleteIncant">Delete</button>
+				</div>
+				<div id="constantSelectedEditContent" class="hidden">
+					<b>Selected Constant: <div id="selectedConstantTitle" class="inlineCluster spellIncant"></div></b>
+					<p>Content: <input id="selectedConstantContent"></p>
+					<button id="updateConstant">Update</button>
+					<button id="deleteConstant">Delete</button>
 				</div>
 			</div>
 		</div>
