@@ -9,26 +9,26 @@ function toggleSelectIncant(incant) {
         id("noIncantSelectedEditText").classList.add("hidden");
         if(selectedIncant) {
             selectedIncant.style.fontWeight = "";
-            if(selectedIncant.dataset.constant == "true") {
-                id("constantSelectedEditContent").classList.remove("hidden");
-                id("incantSelectedEditContent").classList.add("hidden");
+        }
+        if(incant.dataset.constant == "true") {
+            id("constantSelectedEditContent").classList.remove("hidden");
+            id("incantSelectedEditContent").classList.add("hidden");
 
-                let constantText = selectedIncant.dataset.val;
-                if(constantText.slice(0, 1) == "/") {
-                    constantText = constant.slice(1, -1);
-                }
-                id("selectedConstantContent").value = constantText;
-            } else {
-                id("incantSelectedEditContent").classList.remove("hidden");
-                id("constantSelectedEditContent").classList.add("hidden");
-
-                updateIncantSelectorUI(incant.dataset.val, {
-                    title: id("selectedIncantTitle"),
-                    args: id("selectedIncantArgumentList"),
-                    returns: id("selectedIncantReturnList"),
-                    desc: id("selectedIncantDescription")
-                });
+            let constantText = incant.dataset.val;
+            if(constantText.slice(0, 1) == "/") {
+                constantText = constant.slice(1, -1);
             }
+            id("selectedConstantContent").value = constantText;
+        } else {
+            id("incantSelectedEditContent").classList.remove("hidden");
+            id("constantSelectedEditContent").classList.add("hidden");
+
+            updateIncantSelectorUI(incant.dataset.val, {
+                title: id("selectedIncantTitle"),
+                args: id("selectedIncantArgumentList"),
+                returns: id("selectedIncantReturnList"),
+                desc: id("selectedIncantDescription")
+            });
         }
         incant.style.fontWeight = "bold";
     }
