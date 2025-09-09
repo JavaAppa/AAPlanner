@@ -353,6 +353,11 @@ id("addConstSubmit").addEventListener("click", function() {
     id("addConstValue").value = "";
 });
 
+function startLinter() {
+    id("linterResults").innerHTML = "";
+    
+}
+
 const clusterTypes = {
     entity: {"styleTag": "entity", "name": "Entity"},
     block: {"styleTag": "block", "name": "Block"},
