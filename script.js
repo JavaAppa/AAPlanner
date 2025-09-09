@@ -14,10 +14,11 @@ function toggleSelectIncant(incant) {
             id("constantSelectedEditContent").classList.remove("hidden");
             id("incantSelectedEditContent").classList.add("hidden");
 
-            let constantText = incant.dataset.val;
+            let constantText = incant.innerText;
             if(constantText.slice(0, 1) == "/") {
                 constantText = constant.slice(1, -1);
             }
+            id("selectedConstantTitle").innerText = incant.innerText;
             id("selectedConstantContent").value = constantText;
         } else {
             id("incantSelectedEditContent").classList.remove("hidden");
@@ -337,7 +338,7 @@ id("updateConstant").addEventListener("click", function() {
             val = "/" + val + "/";
         }
         selectedIncant.innerText = val;
-        selectedIncant.dataset.val = val;
+        id("selectedConstantTitle").innerText = val;
         updateExportSpell();
     }
 });
