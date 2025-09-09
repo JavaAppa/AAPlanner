@@ -16,7 +16,7 @@ function toggleSelectIncant(incant) {
 
             let constantText = incant.innerText;
             if(constantText.slice(0, 1) == "/") {
-                constantText = constant.slice(1, -1);
+                constantText = constantText.slice(1, -1);
             }
             id("selectedConstantTitle").innerText = incant.innerText;
             id("selectedConstantContent").value = constantText;
