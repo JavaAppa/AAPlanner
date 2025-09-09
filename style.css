@@ -203,3 +203,31 @@ button:hover {
     background-color: green;
     padding: 0px;
 }
+
+
+.linterData {
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+.linterData.linterError {
+    background-color: rgba(255, 10, 10, 0.2);
+    font-weight: bold;
+    color: #ff0000;
+}
+.linterData.linterError:after {
+    content: " !!!";
+}
+.linterData.linterError:before {
+    content: "!!! ";
+}
+
+.linterData.linterWarning {
+    background-color: #ffff4420;
+    color: #ffff99;
+    font-style: italic;
+}
+.linterData.linterInfo {
+    background-color: #3a3abc5e;
+    color: #a9a9ff;
+}
